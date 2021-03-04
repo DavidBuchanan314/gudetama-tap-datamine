@@ -130,3 +130,5 @@ dmypy.json
 
 # decompiled as3 sources
 decompiled/
+datfiles/
+jsonfiles/

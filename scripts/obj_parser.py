@@ -84,10 +84,12 @@ def parse_primitive_obj(obj_id, data):
 		exit("bad id")
 
 def parse_obj(data):
+	# TODO: if data is bytes, convert to BytesIO
 	obj_id_int = unpackex("H", data)
 	obj_id = ID(obj_id_int)
 
 	if obj_id_int < 12:
 		return parse_primitive_obj(obj_id, data)
 	else:
+		# we have to pass in the other parsers here, to avoid circular imports
 		return parse_compound_obj(obj_id, data, parse_obj, parse_primitive_obj)
