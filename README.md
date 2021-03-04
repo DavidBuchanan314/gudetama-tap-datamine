@@ -2,7 +2,7 @@
 Datamining scripts and information for the Gudetama Tap! mobile app.
 
 `scripts/download_latest_data.py` is a python script which downloads the latest
-game data archive from the servers (to `./datfiles/`), parses all the game data out
+game data archives from the servers (to `./datfiles/`), and parses all the game data out
 into semi-human-readable JSON files (to `./jsonfiles/`).
 
 ### How it works
