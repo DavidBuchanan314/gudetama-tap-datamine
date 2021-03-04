@@ -2,7 +2,6 @@
 from obj_ids import ID
 from parser_utils import *
 
-
 def parse_compound_obj(obj_id, data, parse_obj, parse_primitive_obj):
 
 	if False: # just to get the elif chain started...
@@ -10,1458 +9,1458 @@ def parse_compound_obj(obj_id, data, parse_obj, parse_primitive_obj):
 
 	elif obj_id == ID.ARExpansionGoodsDef:
 		obj = {}
-		obj["id"], data = unpackex("h", data)
-		obj["type"], data = unpackex("h", data)
-		obj["price"], data = parse_obj(data)
-		return ("ARExpansionGoodsDef", obj), data
+		obj["id"] = unpackex("h", data)
+		obj["type"] = unpackex("h", data)
+		obj["price"] = parse_obj(data)
+		return ("ARExpansionGoodsDef", obj)
 
 	elif obj_id == ID.AbilityParam:
 		obj = {}
-		obj["type"], data = unpackex("i", data)
-		obj["values"], data = parse_obj(data)
-		obj["secs"], data = unpackex("i", data)
-		return ("AbilityParam", obj), data
+		obj["type"] = unpackex("i", data)
+		obj["values"] = parse_obj(data)
+		obj["secs"] = unpackex("i", data)
+		return ("AbilityParam", obj)
 
 	elif obj_id == ID.AssistInfo:
 		obj = {}
-		obj["aid"], data = unpackex("d", data)
-		obj["encodedUid"], data = unpackex("i", data)
-		obj["playerName"], data = parseUTF(data)
-		obj["playerRank"], data = unpackex("i", data)
-		obj["kitchenwareType"], data = unpackex("i", data)
-		obj["gudetamaId"], data = unpackex("i", data)
-		obj["finishTimeSecs"], data = unpackex("i", data)
-		obj["usefulId"], data = unpackex("i", data)
-		obj["assistTimeSecs"], data = unpackex("i", data)
-		obj["avatar"], data = unpackex("i", data)
-		obj["snsProfileImage"], data = parse_obj(data)
-		obj["snsType"], data = unpackex("b", data)
-		return ("AssistInfo", obj), data
+		obj["aid"] = unpackex("d", data)
+		obj["encodedUid"] = unpackex("i", data)
+		obj["playerName"] = parseUTF(data)
+		obj["playerRank"] = unpackex("i", data)
+		obj["kitchenwareType"] = unpackex("i", data)
+		obj["gudetamaId"] = unpackex("i", data)
+		obj["finishTimeSecs"] = unpackex("i", data)
+		obj["usefulId"] = unpackex("i", data)
+		obj["assistTimeSecs"] = unpackex("i", data)
+		obj["avatar"] = unpackex("i", data)
+		obj["snsProfileImage"] = parse_obj(data)
+		obj["snsType"] = unpackex("b", data)
+		return ("AssistInfo", obj)
 
 	elif obj_id == ID.AvatarData:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["acquired"], data = unpackex("b", data)
-		obj["available"], data = unpackex("b", data)
-		return ("AvatarData", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["acquired"] = unpackex("b", data)
+		obj["available"] = unpackex("b", data)
+		return ("AvatarData", obj)
 
 	elif obj_id == ID.AvatarDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["rsrc"], data = unpackex("i", data)
-		obj["name"], data = parseUTF(data)
-		obj["desc"], data = parseUTF(data)
-		obj["conditionDesc"], data = parseUTF(data)
-		obj["price"], data = parse_obj(data)
-		obj["isNew"], data = unpackex("b", data)
-		return ("AvatarDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["rsrc"] = unpackex("i", data)
+		obj["name"] = parseUTF(data)
+		obj["desc"] = parseUTF(data)
+		obj["conditionDesc"] = parseUTF(data)
+		obj["price"] = parse_obj(data)
+		obj["isNew"] = unpackex("b", data)
+		return ("AvatarDef", obj)
 
 	elif obj_id == ID.AvatarInfo:
 		obj = {}
-		obj["updateAvatars"], data = parse_obj(data)
-		obj["removeAvatarIds"], data = parse_obj(data)
-		return ("AvatarInfo", obj), data
+		obj["updateAvatars"] = parse_obj(data)
+		obj["removeAvatarIds"] = parse_obj(data)
+		return ("AvatarInfo", obj)
 
 	elif obj_id == ID.CheckedMessageInfo:
 		obj = {}
-		obj["seq"], data = parse_obj(data)
-		obj["type"], data = unpackex("i", data)
-		obj["target"], data = unpackex("i", data)
-		return ("CheckedMessageInfo", obj), data
+		obj["seq"] = parse_obj(data)
+		obj["type"] = unpackex("i", data)
+		obj["target"] = unpackex("i", data)
+		return ("CheckedMessageInfo", obj)
 
 	elif obj_id == ID.ComicDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["rsrcs"], data = parse_obj(data)
-		obj["comicSpine"], data = parse_obj(data)
-		return ("ComicDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["rsrcs"] = parse_obj(data)
+		obj["comicSpine"] = parse_obj(data)
+		return ("ComicDef", obj)
 
 	elif obj_id == ID.ComicSpineDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["spainMap"], data = parse_primitive_obj(ID(8), data)
-		obj["spainAnimeMap"], data = parse_primitive_obj(ID(8), data)
-		obj["spainScaleMap"], data = parse_primitive_obj(ID(8), data)
-		obj["spainDelayMap"], data = parse_primitive_obj(ID(8), data)
-		return ("ComicSpineDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["spainMap"] = parse_primitive_obj(ID(8), data)
+		obj["spainAnimeMap"] = parse_primitive_obj(ID(8), data)
+		obj["spainScaleMap"] = parse_primitive_obj(ID(8), data)
+		obj["spainDelayMap"] = parse_primitive_obj(ID(8), data)
+		return ("ComicSpineDef", obj)
 
 	elif obj_id == ID.CommentDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["name"], data = parseUTF(data)
-		return ("CommentDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["name"] = parseUTF(data)
+		return ("CommentDef", obj)
 
 	elif obj_id == ID.CommonConstants:
 		obj = {}
-		return ("CommonConstants", obj), data
+		return ("CommonConstants", obj)
 
 	elif obj_id == ID.ConvertParam:
 		obj = {}
-		obj["originalItem"], data = parse_obj(data)
-		obj["convertedItem"], data = parse_obj(data)
-		obj["convertedParam"], data = parse_obj(data)
-		obj["kind"], data = unpackex("i", data)
-		obj["id"], data = unpackex("i", data)
-		obj["num"], data = unpackex("i", data)
-		return ("ConvertParam", obj), data
+		obj["originalItem"] = parse_obj(data)
+		obj["convertedItem"] = parse_obj(data)
+		obj["convertedParam"] = parse_obj(data)
+		obj["kind"] = unpackex("i", data)
+		obj["id"] = unpackex("i", data)
+		obj["num"] = unpackex("i", data)
+		return ("ConvertParam", obj)
 
 	elif obj_id == ID.CupGachaData:
 		obj = {}
-		obj["cookIndex"], data = unpackex("b", data)
-		obj["cupGachaIds"], data = parse_obj(data)
-		obj["restSec"], data = unpackex("i", data)
-		obj["showAdNum"], data = unpackex("b", data)
-		return ("CupGachaData", obj), data
+		obj["cookIndex"] = unpackex("b", data)
+		obj["cupGachaIds"] = parse_obj(data)
+		obj["restSec"] = unpackex("i", data)
+		obj["showAdNum"] = unpackex("b", data)
+		return ("CupGachaData", obj)
 
 	elif obj_id == ID.CupGachaDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["rsrc"], data = unpackex("i", data)
-		obj["name"], data = parseUTF(data)
-		obj["desc"], data = parseUTF(data)
-		obj["rarity"], data = unpackex("b", data)
-		obj["prizes"], data = parse_obj(data)
-		obj["oddses"], data = parse_obj(data)
-		obj["cookMin"], data = unpackex("i", data)
-		obj["price"], data = parse_obj(data)
-		obj["isNew"], data = unpackex("b", data)
-		obj["conditionDesc"], data = parseUTF(data)
-		obj["sortIndex"], data = unpackex("i", data)
-		obj["enableCountryFlags"], data = parse_obj(data)
-		obj["missionCommonID"], data = unpackex("i", data)
-		return ("CupGachaDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["rsrc"] = unpackex("i", data)
+		obj["name"] = parseUTF(data)
+		obj["desc"] = parseUTF(data)
+		obj["rarity"] = unpackex("b", data)
+		obj["prizes"] = parse_obj(data)
+		obj["oddses"] = parse_obj(data)
+		obj["cookMin"] = unpackex("i", data)
+		obj["price"] = parse_obj(data)
+		obj["isNew"] = unpackex("b", data)
+		obj["conditionDesc"] = parseUTF(data)
+		obj["sortIndex"] = unpackex("i", data)
+		obj["enableCountryFlags"] = parse_obj(data)
+		obj["missionCommonID"] = unpackex("i", data)
+		return ("CupGachaDef", obj)
 
 	elif obj_id == ID.CupGachaResult:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["results"], data = parse_primitive_obj(ID(9), data)
-		return ("CupGachaResult", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["results"] = parse_primitive_obj(ID(9), data)
+		return ("CupGachaResult", obj)
 
 	elif obj_id == ID.DecorationData:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["acquired"], data = unpackex("b", data)
-		obj["available"], data = unpackex("b", data)
-		return ("DecorationData", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["acquired"] = unpackex("b", data)
+		obj["available"] = unpackex("b", data)
+		return ("DecorationData", obj)
 
 	elif obj_id == ID.DecorationDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["rsrc"], data = unpackex("i", data)
-		obj["name"], data = parseUTF(data)
-		obj["desc"], data = parseUTF(data)
-		obj["conditionDesc"], data = parseUTF(data)
-		obj["price"], data = parse_obj(data)
-		obj["isNew"], data = unpackex("b", data)
-		return ("DecorationDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["rsrc"] = unpackex("i", data)
+		obj["name"] = parseUTF(data)
+		obj["desc"] = parseUTF(data)
+		obj["conditionDesc"] = parseUTF(data)
+		obj["price"] = parse_obj(data)
+		obj["isNew"] = unpackex("b", data)
+		return ("DecorationDef", obj)
 
 	elif obj_id == ID.DecorationInfo:
 		obj = {}
-		obj["updateDecorations"], data = parse_obj(data)
-		obj["removeDecorationIds"], data = parse_obj(data)
-		return ("DecorationInfo", obj), data
+		obj["updateDecorations"] = parse_obj(data)
+		obj["removeDecorationIds"] = parse_obj(data)
+		return ("DecorationInfo", obj)
 
 	elif obj_id == ID.DeliverPointTableDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["gudePointMap"], data = parse_primitive_obj(ID(7), data)
-		return ("DeliverPointTableDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["gudePointMap"] = parse_primitive_obj(ID(7), data)
+		return ("DeliverPointTableDef", obj)
 
 	elif obj_id == ID.DelusionDef:
 		obj = {}
-		obj["param"], data = parse_obj(data)
-		return ("DelusionDef", obj), data
+		obj["param"] = parse_obj(data)
+		return ("DelusionDef", obj)
 
 	elif obj_id == ID.DelusionParam:
 		obj = {}
-		obj["pastMinutes"], data = unpackex("i", data)
-		return ("DelusionParam", obj), data
+		obj["pastMinutes"] = unpackex("i", data)
+		return ("DelusionParam", obj)
 
 	elif obj_id == ID.DictDef:
 		obj = {}
-		obj["uitext"], data = parse_primitive_obj(ID(8), data)
-		obj["message"], data = parse_primitive_obj(ID(8), data)
-		obj["textplain"], data = parse_primitive_obj(ID(8), data)
-		obj["others"], data = parse_primitive_obj(ID(8), data)
-		obj["voice"], data = parse_primitive_obj(ID(8), data)
-		obj["guide"], data = parse_primitive_obj(ID(8), data)
-		obj["inviteRewardRobos"], data = parse_obj(data)
-		obj["guideLocalizeImages"], data = parse_obj(data)
-		obj["noticeLocalizeImages"], data = parse_obj(data)
-		obj["notice"], data = parse_obj(data)
-		obj["hintNum"], data = unpackex("i", data)
-		return ("DictDef", obj), data
+		obj["uitext"] = parse_primitive_obj(ID(8), data)
+		obj["message"] = parse_primitive_obj(ID(8), data)
+		obj["textplain"] = parse_primitive_obj(ID(8), data)
+		obj["others"] = parse_primitive_obj(ID(8), data)
+		obj["voice"] = parse_primitive_obj(ID(8), data)
+		obj["guide"] = parse_primitive_obj(ID(8), data)
+		obj["inviteRewardRobos"] = parse_obj(data)
+		obj["guideLocalizeImages"] = parse_obj(data)
+		obj["noticeLocalizeImages"] = parse_obj(data)
+		obj["notice"] = parse_obj(data)
+		obj["hintNum"] = unpackex("i", data)
+		return ("DictDef", obj)
 
 	elif obj_id == ID.EventData:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["endRestTimeSecs"], data = unpackex("i", data)
-		obj["background"], data = parseUTF(data)
-		obj["buttonImage"], data = parseUTF(data)
-		obj["title"], data = parseUTF(data)
-		obj["message"], data = parseUTF(data)
-		obj["url"], data = parseUTF(data)
-		obj["decorationId"], data = unpackex("i", data)
-		obj["endTallyRestTimeSecs"], data = unpackex("i", data)
-		obj["rankingId"], data = unpackex("i", data)
-		obj["noticeIconRsrc"], data = unpackex("i", data)
-		obj["gudetamaIds"], data = parse_obj(data)
-		obj["chBGM"], data = parse_obj(data)
-		obj["rentalDecorations"], data = parse_obj(data)
-		obj["noticeTextKey"], data = parseUTF(data)
-		obj["attendable"], data = unpackex("b", data)
-		return ("EventData", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["endRestTimeSecs"] = unpackex("i", data)
+		obj["background"] = parseUTF(data)
+		obj["buttonImage"] = parseUTF(data)
+		obj["title"] = parseUTF(data)
+		obj["message"] = parseUTF(data)
+		obj["url"] = parseUTF(data)
+		obj["decorationId"] = unpackex("i", data)
+		obj["endTallyRestTimeSecs"] = unpackex("i", data)
+		obj["rankingId"] = unpackex("i", data)
+		obj["noticeIconRsrc"] = unpackex("i", data)
+		obj["gudetamaIds"] = parse_obj(data)
+		obj["chBGM"] = parse_obj(data)
+		obj["rentalDecorations"] = parse_obj(data)
+		obj["noticeTextKey"] = parseUTF(data)
+		obj["attendable"] = unpackex("b", data)
+		return ("EventData", obj)
 
 	elif obj_id == ID.EventPreset:
 		obj = {}
-		return ("EventPreset", obj), data
+		return ("EventPreset", obj)
 
 	elif obj_id == ID.FeatureDef:
 		obj = {}
-		obj["paramMap"], data = parse_primitive_obj(ID(7), data)
-		return ("FeatureDef", obj), data
+		obj["paramMap"] = parse_primitive_obj(ID(7), data)
+		return ("FeatureDef", obj)
 
 	elif obj_id == ID.FeatureParam:
 		obj = {}
-		obj["type"], data = unpackex("i", data)
-		obj["value"], data = unpackex("i", data)
-		return ("FeatureParam", obj), data
+		obj["type"] = unpackex("i", data)
+		obj["value"] = unpackex("i", data)
+		return ("FeatureParam", obj)
 
 	elif obj_id == ID.FileInfoDef:
 		obj = {}
-		obj["path"], data = parseUTF(data)
-		obj["size"], data = unpackex("i", data)
-		obj["hash"], data = unpackex("i", data)
-		obj["hasLocale"], data = unpackex("b", data)
-		return ("FileInfoDef", obj), data
+		obj["path"] = parseUTF(data)
+		obj["size"] = unpackex("i", data)
+		obj["hash"] = unpackex("i", data)
+		obj["hasLocale"] = unpackex("b", data)
+		return ("FileInfoDef", obj)
 
 	elif obj_id == ID.FirstLoginInfo:
 		obj = {}
-		obj["name"], data = parseUTF(data)
-		obj["gender"], data = unpackex("i", data)
-		obj["area"], data = unpackex("i", data)
-		obj["timeZone"], data = parseUTF(data)
-		obj["locale"], data = parseUTF(data)
-		obj["deckIndex"], data = unpackex("i", data)
-		obj["comment"], data = unpackex("i", data)
-		obj["avatar"], data = unpackex("i", data)
-		return ("FirstLoginInfo", obj), data
+		obj["name"] = parseUTF(data)
+		obj["gender"] = unpackex("i", data)
+		obj["area"] = unpackex("i", data)
+		obj["timeZone"] = parseUTF(data)
+		obj["locale"] = parseUTF(data)
+		obj["deckIndex"] = unpackex("i", data)
+		obj["comment"] = unpackex("i", data)
+		obj["avatar"] = unpackex("i", data)
+		return ("FirstLoginInfo", obj)
 
 	elif obj_id == ID.FriendAssistResult:
 		obj = {}
-		obj["userRoomInfo"], data = parse_obj(data)
-		obj["lastFriendly"], data = unpackex("i", data)
-		obj["addFriendly"], data = unpackex("i", data)
-		obj["lastFriendlyLevel"], data = unpackex("i", data)
-		return ("FriendAssistResult", obj), data
+		obj["userRoomInfo"] = parse_obj(data)
+		obj["lastFriendly"] = unpackex("i", data)
+		obj["addFriendly"] = unpackex("i", data)
+		obj["lastFriendlyLevel"] = unpackex("i", data)
+		return ("FriendAssistResult", obj)
 
 	elif obj_id == ID.FriendInfo:
 		obj = {}
-		obj["friendlyData"], data = parse_obj(data)
-		obj["wantedGudetamas"], data = parse_obj(data)
-		obj["friendPresentLogDiff"], data = parse_obj(data)
-		obj["lastFriendlyLevel"], data = unpackex("i", data)
-		return ("FriendInfo", obj), data
+		obj["friendlyData"] = parse_obj(data)
+		obj["wantedGudetamas"] = parse_obj(data)
+		obj["friendPresentLogDiff"] = parse_obj(data)
+		obj["lastFriendlyLevel"] = unpackex("i", data)
+		return ("FriendInfo", obj)
 
 	elif obj_id == ID.FriendPresentResult:
 		obj = {}
-		obj["friendlyData"], data = parse_obj(data)
-		obj["consumedGudetama"], data = parse_obj(data)
-		obj["lastFriendly"], data = unpackex("i", data)
-		obj["addFriendly"], data = unpackex("i", data)
-		obj["friendPresentLogDiff"], data = parse_obj(data)
-		obj["lastFriendlyLevel"], data = unpackex("i", data)
-		obj["deliveredEventIds"], data = parse_obj(data)
-		return ("FriendPresentResult", obj), data
+		obj["friendlyData"] = parse_obj(data)
+		obj["consumedGudetama"] = parse_obj(data)
+		obj["lastFriendly"] = unpackex("i", data)
+		obj["addFriendly"] = unpackex("i", data)
+		obj["friendPresentLogDiff"] = parse_obj(data)
+		obj["lastFriendlyLevel"] = unpackex("i", data)
+		obj["deliveredEventIds"] = parse_obj(data)
+		return ("FriendPresentResult", obj)
 
 	elif obj_id == ID.FriendlyData:
 		obj = {}
-		obj["encodedUid"], data = unpackex("i", data)
-		obj["friendly"], data = unpackex("i", data)
-		obj["friendlyLevel"], data = unpackex("i", data)
-		return ("FriendlyData", obj), data
+		obj["encodedUid"] = unpackex("i", data)
+		obj["friendly"] = unpackex("i", data)
+		obj["friendlyLevel"] = unpackex("i", data)
+		return ("FriendlyData", obj)
 
 	elif obj_id == ID.FriendlyDef:
 		obj = {}
-		obj["params"], data = parse_obj(data)
-		obj["heartBorders"], data = parse_obj(data)
-		return ("FriendlyDef", obj), data
+		obj["params"] = parse_obj(data)
+		obj["heartBorders"] = parse_obj(data)
+		return ("FriendlyDef", obj)
 
 	elif obj_id == ID.FriendlyParam:
 		obj = {}
-		obj["index"], data = unpackex("i", data)
-		obj["max"], data = unpackex("i", data)
-		obj["rewards"], data = parse_obj(data)
-		return ("FriendlyParam", obj), data
+		obj["index"] = unpackex("i", data)
+		obj["max"] = unpackex("i", data)
+		obj["rewards"] = parse_obj(data)
+		return ("FriendlyParam", obj)
 
 	elif obj_id == ID.GachaData:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["existsPickup"], data = unpackex("b", data)
-		return ("GachaData", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["existsPickup"] = unpackex("b", data)
+		return ("GachaData", obj)
 
 	elif obj_id == ID.GachaDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["rsrc"], data = unpackex("i", data)
-		obj["sortIndex"], data = unpackex("i", data)
-		obj["name"], data = parseUTF(data)
-		obj["desc"], data = parseUTF(data)
-		obj["lineupDesc"], data = parseUTF(data)
-		obj["prices"], data = parse_obj(data)
-		obj["numFree"], data = unpackex("i", data)
-		obj["numOnceMore"], data = unpackex("i", data)
-		obj["screeningItems"], data = parse_obj(data)
-		obj["ratesAtKind"], data = parse_obj(data)
-		obj["hasRareStamp"], data = unpackex("b", data)
-		obj["gachaLineupPrioritizedKinds"], data = parse_obj(data)
-		return ("GachaDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["rsrc"] = unpackex("i", data)
+		obj["sortIndex"] = unpackex("i", data)
+		obj["name"] = parseUTF(data)
+		obj["desc"] = parseUTF(data)
+		obj["lineupDesc"] = parseUTF(data)
+		obj["prices"] = parse_obj(data)
+		obj["numFree"] = unpackex("i", data)
+		obj["numOnceMore"] = unpackex("i", data)
+		obj["screeningItems"] = parse_obj(data)
+		obj["ratesAtKind"] = parse_obj(data)
+		obj["hasRareStamp"] = unpackex("b", data)
+		obj["gachaLineupPrioritizedKinds"] = parse_obj(data)
+		return ("GachaDef", obj)
 
 	elif obj_id == ID.GachaPriceDef:
 		obj = {}
-		obj["num"], data = unpackex("i", data)
-		obj["prices"], data = parse_obj(data)
-		obj["numDaily"], data = unpackex("i", data)
-		obj["enabledCollect"], data = unpackex("b", data)
-		return ("GachaPriceDef", obj), data
+		obj["num"] = unpackex("i", data)
+		obj["prices"] = parse_obj(data)
+		obj["numDaily"] = unpackex("i", data)
+		obj["enabledCollect"] = unpackex("b", data)
+		return ("GachaPriceDef", obj)
 
 	elif obj_id == ID.GachaResult:
 		obj = {}
-		obj["userGachaData"], data = parse_obj(data)
-		obj["items"], data = parse_obj(data)
-		obj["params"], data = parse_obj(data)
-		obj["convertedItems"], data = parse_obj(data)
-		obj["rarities"], data = parse_obj(data)
-		obj["worthFlags"], data = parse_obj(data)
-		obj["onceMore"], data = unpackex("b", data)
-		obj["useItem"], data = parse_obj(data)
-		return ("GachaResult", obj), data
+		obj["userGachaData"] = parse_obj(data)
+		obj["items"] = parse_obj(data)
+		obj["params"] = parse_obj(data)
+		obj["convertedItems"] = parse_obj(data)
+		obj["rarities"] = parse_obj(data)
+		obj["worthFlags"] = parse_obj(data)
+		obj["onceMore"] = unpackex("b", data)
+		obj["useItem"] = parse_obj(data)
+		return ("GachaResult", obj)
 
 	elif obj_id == ID.GameDef:
 		obj = {}
-		obj["version"], data = unpackex("i", data)
-		obj["dict"], data = parse_obj(data)
-		obj["initDict"], data = parse_obj(data)
-		obj["rule"], data = parse_obj(data)
-		obj["screening"], data = parse_obj(data)
-		obj["kitchenwareMap"], data = parse_primitive_obj(ID(7), data)
-		obj["recipeNoteMap"], data = parse_primitive_obj(ID(7), data)
-		obj["gudetamaMap"], data = parse_primitive_obj(ID(7), data)
-		obj["voiceMap"], data = parse_primitive_obj(ID(7), data)
-		obj["gachaMap"], data = parse_primitive_obj(ID(7), data)
-		obj["usefulMap"], data = parse_primitive_obj(ID(7), data)
-		obj["decorationMap"], data = parse_primitive_obj(ID(7), data)
-		obj["utensilMap"], data = parse_primitive_obj(ID(7), data)
-		obj["stampMap"], data = parse_primitive_obj(ID(7), data)
-		obj["avatarMap"], data = parse_primitive_obj(ID(7), data)
-		obj["missionMap"], data = parse_primitive_obj(ID(7), data)
-		obj["touch"], data = parse_obj(data)
-		obj["delusion"], data = parse_obj(data)
-		obj["feature"], data = parse_obj(data)
-		obj["friendly"], data = parse_obj(data)
-		obj["videoAdReward"], data = parse_obj(data)
-		obj["linkageMap"], data = parse_primitive_obj(ID(7), data)
-		obj["questionMap"], data = parse_primitive_obj(ID(7), data)
-		obj["arExpansionGoodsMap"], data = parse_primitive_obj(ID(7), data)
-		obj["hideGudeMap"], data = parse_primitive_obj(ID(7), data)
-		obj["commentMap"], data = parse_primitive_obj(ID(7), data)
-		obj["promotionVideoMap"], data = parse_primitive_obj(ID(7), data)
-		obj["identifiedPresentMap"], data = parse_primitive_obj(ID(7), data)
-		obj["shareBonusMap"], data = parse_primitive_obj(ID(7), data)
-		obj["quizGenreIdMax"], data = unpackex("i", data)
-		obj["battleItemIdMax"], data = unpackex("i", data)
-		obj["metalShopTable"], data = parse_primitive_obj(ID(7), data)
-		obj["monthlyPremiumBonusTable"], data = parse_primitive_obj(ID(7), data)
-		obj["guideTalkTable"], data = parse_primitive_obj(ID(7), data)
-		obj["rankingMap"], data = parse_primitive_obj(ID(7), data)
-		obj["rankingRewardMap"], data = parse_primitive_obj(ID(7), data)
-		obj["fileInfos"], data = parse_obj(data)
-		obj["locale"], data = parseUTF(data)
-		obj["resourceUrl"], data = parseUTF(data)
-		obj["purchasePresentTable"], data = parse_primitive_obj(ID(7), data)
-		obj["bannerTable"], data = parse_primitive_obj(ID(7), data)
-		obj["interTable"], data = parse_primitive_obj(ID(7), data)
-		obj["deliverPointTableMap"], data = parse_primitive_obj(ID(7), data)
-		obj["setItemMap"], data = parse_primitive_obj(ID(7), data)
-		obj["comicMap"], data = parse_primitive_obj(ID(7), data)
-		obj["onlyShowMap"], data = parse_primitive_obj(ID(7), data)
-		obj["cupGachaMap"], data = parse_primitive_obj(ID(7), data)
-		obj["homeExpansionGoodsMap"], data = parse_primitive_obj(ID(7), data)
-		obj["homeStampSettingMap"], data = parse_primitive_obj(ID(7), data)
-		obj["kitchenwareConditionMap"], data = parse_primitive_obj(ID(7), data)
-		obj["helperSettingMap"], data = parse_primitive_obj(ID(7), data)
-		obj["helperComicDef"], data = parse_obj(data)
-		return ("GameDef", obj), data
+		obj["version"] = unpackex("i", data)
+		obj["dict"] = parse_obj(data)
+		obj["initDict"] = parse_obj(data)
+		obj["rule"] = parse_obj(data)
+		obj["screening"] = parse_obj(data)
+		obj["kitchenwareMap"] = parse_primitive_obj(ID(7), data)
+		obj["recipeNoteMap"] = parse_primitive_obj(ID(7), data)
+		obj["gudetamaMap"] = parse_primitive_obj(ID(7), data)
+		obj["voiceMap"] = parse_primitive_obj(ID(7), data)
+		obj["gachaMap"] = parse_primitive_obj(ID(7), data)
+		obj["usefulMap"] = parse_primitive_obj(ID(7), data)
+		obj["decorationMap"] = parse_primitive_obj(ID(7), data)
+		obj["utensilMap"] = parse_primitive_obj(ID(7), data)
+		obj["stampMap"] = parse_primitive_obj(ID(7), data)
+		obj["avatarMap"] = parse_primitive_obj(ID(7), data)
+		obj["missionMap"] = parse_primitive_obj(ID(7), data)
+		obj["touch"] = parse_obj(data)
+		obj["delusion"] = parse_obj(data)
+		obj["feature"] = parse_obj(data)
+		obj["friendly"] = parse_obj(data)
+		obj["videoAdReward"] = parse_obj(data)
+		obj["linkageMap"] = parse_primitive_obj(ID(7), data)
+		obj["questionMap"] = parse_primitive_obj(ID(7), data)
+		obj["arExpansionGoodsMap"] = parse_primitive_obj(ID(7), data)
+		obj["hideGudeMap"] = parse_primitive_obj(ID(7), data)
+		obj["commentMap"] = parse_primitive_obj(ID(7), data)
+		obj["promotionVideoMap"] = parse_primitive_obj(ID(7), data)
+		obj["identifiedPresentMap"] = parse_primitive_obj(ID(7), data)
+		obj["shareBonusMap"] = parse_primitive_obj(ID(7), data)
+		obj["quizGenreIdMax"] = unpackex("i", data)
+		obj["battleItemIdMax"] = unpackex("i", data)
+		obj["metalShopTable"] = parse_primitive_obj(ID(7), data)
+		obj["monthlyPremiumBonusTable"] = parse_primitive_obj(ID(7), data)
+		obj["guideTalkTable"] = parse_primitive_obj(ID(7), data)
+		obj["rankingMap"] = parse_primitive_obj(ID(7), data)
+		obj["rankingRewardMap"] = parse_primitive_obj(ID(7), data)
+		obj["fileInfos"] = parse_obj(data)
+		obj["locale"] = parseUTF(data)
+		obj["resourceUrl"] = parseUTF(data)
+		obj["purchasePresentTable"] = parse_primitive_obj(ID(7), data)
+		obj["bannerTable"] = parse_primitive_obj(ID(7), data)
+		obj["interTable"] = parse_primitive_obj(ID(7), data)
+		obj["deliverPointTableMap"] = parse_primitive_obj(ID(7), data)
+		obj["setItemMap"] = parse_primitive_obj(ID(7), data)
+		obj["comicMap"] = parse_primitive_obj(ID(7), data)
+		obj["onlyShowMap"] = parse_primitive_obj(ID(7), data)
+		obj["cupGachaMap"] = parse_primitive_obj(ID(7), data)
+		obj["homeExpansionGoodsMap"] = parse_primitive_obj(ID(7), data)
+		obj["homeStampSettingMap"] = parse_primitive_obj(ID(7), data)
+		obj["kitchenwareConditionMap"] = parse_primitive_obj(ID(7), data)
+		obj["helperSettingMap"] = parse_primitive_obj(ID(7), data)
+		obj["helperComicDef"] = parse_obj(data)
+		return ("GameDef", obj)
 
 	elif obj_id == ID.GetItemResult:
 		obj = {}
-		obj["item"], data = parse_obj(data)
-		obj["param"], data = parse_obj(data)
-		obj["toMail"], data = unpackex("b", data)
-		return ("GetItemResult", obj), data
+		obj["item"] = parse_obj(data)
+		obj["param"] = parse_obj(data)
+		obj["toMail"] = unpackex("b", data)
+		return ("GetItemResult", obj)
 
 	elif obj_id == ID.GudetamaConstants:
 		obj = {}
-		return ("GudetamaConstants", obj), data
+		return ("GudetamaConstants", obj)
 
 	elif obj_id == ID.GudetamaData:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["count"], data = unpackex("h", data)
-		obj["num"], data = unpackex("h", data)
-		obj["unlockedVoiceIndex"], data = unpackex("b", data)
-		obj["available"], data = unpackex("b", data)
-		obj["unlocked"], data = unpackex("b", data)
-		obj["alreadyChallenge"], data = unpackex("b", data)
-		obj["cookedHappening"], data = unpackex("b", data)
-		obj["cookedFailure"], data = unpackex("b", data)
-		obj["targetValue"], data = unpackex("i", data)
-		obj["currentValue"], data = unpackex("i", data)
-		obj["currentTarget"], data = unpackex("i", data)
-		return ("GudetamaData", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["count"] = unpackex("h", data)
+		obj["num"] = unpackex("h", data)
+		obj["unlockedVoiceIndex"] = unpackex("b", data)
+		obj["available"] = unpackex("b", data)
+		obj["unlocked"] = unpackex("b", data)
+		obj["alreadyChallenge"] = unpackex("b", data)
+		obj["cookedHappening"] = unpackex("b", data)
+		obj["cookedFailure"] = unpackex("b", data)
+		obj["targetValue"] = unpackex("i", data)
+		obj["currentValue"] = unpackex("i", data)
+		obj["currentTarget"] = unpackex("i", data)
+		return ("GudetamaData", obj)
 
 	elif obj_id == ID.GudetamaDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["rsrc"], data = unpackex("i", data)
-		obj["uncountable"], data = unpackex("b", data)
-		obj["disabledSpine"], data = unpackex("b", data)
-		obj["imageOffsX"], data = unpackex("i", data)
-		obj["imageOffsY"], data = unpackex("i", data)
-		obj["kitchenwareId"], data = unpackex("i", data)
-		obj["recipeNoteId"], data = unpackex("i", data)
-		obj["type"], data = unpackex("b", data)
-		obj["number"], data = unpackex("i", data)
-		obj["name"], data = parseUTF(data)
-		obj["wrappedName"], data = parseUTF(data)
-		obj["desc"], data = parseUTF(data)
-		obj["cost"], data = unpackex("i", data)
-		obj["reward"], data = unpackex("i", data)
-		obj["rarity"], data = unpackex("b", data)
-		obj["category"], data = unpackex("b", data)
-		obj["country"], data = unpackex("b", data)
-		obj["area"], data = unpackex("h", data)
-		obj["voices"], data = parse_obj(data)
-		obj["voiceType"], data = unpackex("b", data)
-		obj["dropAnime"], data = unpackex("i", data)
-		obj["dish"], data = unpackex("b", data)
-		obj["materials"], data = unpackex("i", data)
-		obj["conditionDesc"], data = parseUTF(data)
-		obj["roulettes"], data = parse_obj(data)
-		obj["rouletteTimePerRound"], data = unpackex("i", data)
-		obj["cookingResultType"], data = unpackex("i", data)
-		obj["isGacha"], data = unpackex("b", data)
-		obj["requiredGudetamas"], data = parse_obj(data)
-		obj["touchTextParams"], data = parse_obj(data)
-		obj["rubTextParams"], data = parse_obj(data)
-		obj["isCup"], data = unpackex("b", data)
-		obj["targetType"], data = unpackex("i", data)
-		obj["targetId"], data = unpackex("i", data)
-		return ("GudetamaDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["rsrc"] = unpackex("i", data)
+		obj["uncountable"] = unpackex("b", data)
+		obj["disabledSpine"] = unpackex("b", data)
+		obj["imageOffsX"] = unpackex("i", data)
+		obj["imageOffsY"] = unpackex("i", data)
+		obj["kitchenwareId"] = unpackex("i", data)
+		obj["recipeNoteId"] = unpackex("i", data)
+		obj["type"] = unpackex("b", data)
+		obj["number"] = unpackex("i", data)
+		obj["name"] = parseUTF(data)
+		obj["wrappedName"] = parseUTF(data)
+		obj["desc"] = parseUTF(data)
+		obj["cost"] = unpackex("i", data)
+		obj["reward"] = unpackex("i", data)
+		obj["rarity"] = unpackex("b", data)
+		obj["category"] = unpackex("b", data)
+		obj["country"] = unpackex("b", data)
+		obj["area"] = unpackex("h", data)
+		obj["voices"] = parse_obj(data)
+		obj["voiceType"] = unpackex("b", data)
+		obj["dropAnime"] = unpackex("i", data)
+		obj["dish"] = unpackex("b", data)
+		obj["materials"] = unpackex("i", data)
+		obj["conditionDesc"] = parseUTF(data)
+		obj["roulettes"] = parse_obj(data)
+		obj["rouletteTimePerRound"] = unpackex("i", data)
+		obj["cookingResultType"] = unpackex("i", data)
+		obj["isGacha"] = unpackex("b", data)
+		obj["requiredGudetamas"] = parse_obj(data)
+		obj["touchTextParams"] = parse_obj(data)
+		obj["rubTextParams"] = parse_obj(data)
+		obj["isCup"] = unpackex("b", data)
+		obj["targetType"] = unpackex("i", data)
+		obj["targetId"] = unpackex("i", data)
+		return ("GudetamaDef", obj)
 
 	elif obj_id == ID.GuideTalkDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["paragraph"], data = parse_obj(data)
-		obj["cannotSkip"], data = unpackex("b", data)
-		return ("GuideTalkDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["paragraph"] = parse_obj(data)
+		obj["cannotSkip"] = unpackex("b", data)
+		return ("GuideTalkDef", obj)
 
 	elif obj_id == ID.GuideTalkParagraphParam:
 		obj = {}
-		obj["sentences"], data = parse_obj(data)
-		return ("GuideTalkParagraphParam", obj), data
+		obj["sentences"] = parse_obj(data)
+		return ("GuideTalkParagraphParam", obj)
 
 	elif obj_id == ID.GuideTalkSentenceParam:
 		obj = {}
-		obj["word"], data = unpackex("b", data)
-		obj["event"], data = unpackex("b", data)
-		obj["paramInt"], data = unpackex("i", data)
-		obj["paramStr"], data = parseUTF(data)
-		obj["waitTime"], data = unpackex("f", data)
-		obj["forceTime"], data = unpackex("f", data)
-		obj["nextWordsConnect"], data = unpackex("b", data)
-		obj["forceWordsFinish"], data = unpackex("b", data)
-		return ("GuideTalkSentenceParam", obj), data
+		obj["word"] = unpackex("b", data)
+		obj["event"] = unpackex("b", data)
+		obj["paramInt"] = unpackex("i", data)
+		obj["paramStr"] = parseUTF(data)
+		obj["waitTime"] = unpackex("f", data)
+		obj["forceTime"] = unpackex("f", data)
+		obj["nextWordsConnect"] = unpackex("b", data)
+		obj["forceWordsFinish"] = unpackex("b", data)
+		return ("GuideTalkSentenceParam", obj)
 
 	elif obj_id == ID.HelperCharaDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["rsrc"], data = unpackex("i", data)
-		obj["showRate"], data = unpackex("i", data)
-		obj["massages"], data = parse_primitive_obj(ID(8), data)
-		obj["massagePosIndex"], data = parse_primitive_obj(ID(8), data)
-		obj["voices"], data = parse_primitive_obj(ID(8), data)
-		obj["fixHelperPosX"], data = unpackex("i", data)
-		return ("HelperCharaDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["rsrc"] = unpackex("i", data)
+		obj["showRate"] = unpackex("i", data)
+		obj["massages"] = parse_primitive_obj(ID(8), data)
+		obj["massagePosIndex"] = parse_primitive_obj(ID(8), data)
+		obj["voices"] = parse_primitive_obj(ID(8), data)
+		obj["fixHelperPosX"] = unpackex("i", data)
+		return ("HelperCharaDef", obj)
 
 	elif obj_id == ID.HideGudetamaDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["name"], data = parseUTF(data)
-		return ("HideGudetamaDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["name"] = parseUTF(data)
+		return ("HideGudetamaDef", obj)
 
 	elif obj_id == ID.HomeDecoData:
 		obj = {}
-		obj["stampId"], data = unpackex("i", data)
-		obj["index"], data = unpackex("h", data)
-		obj["x"], data = unpackex("d", data)
-		obj["y"], data = unpackex("d", data)
-		obj["rotation"], data = unpackex("f", data)
-		obj["scale"], data = unpackex("f", data)
-		obj["screenPosRateX"], data = unpackex("f", data)
-		obj["screenPosRateY"], data = unpackex("f", data)
-		obj["isSpain"], data = unpackex("b", data)
-		return ("HomeDecoData", obj), data
+		obj["stampId"] = unpackex("i", data)
+		obj["index"] = unpackex("h", data)
+		obj["x"] = unpackex("d", data)
+		obj["y"] = unpackex("d", data)
+		obj["rotation"] = unpackex("f", data)
+		obj["scale"] = unpackex("f", data)
+		obj["screenPosRateX"] = unpackex("f", data)
+		obj["screenPosRateY"] = unpackex("f", data)
+		obj["isSpain"] = unpackex("b", data)
+		return ("HomeDecoData", obj)
 
 	elif obj_id == ID.HomeExpansionGoodsDef:
 		obj = {}
-		obj["id"], data = unpackex("h", data)
-		obj["price"], data = parse_obj(data)
-		return ("HomeExpansionGoodsDef", obj), data
+		obj["id"] = unpackex("h", data)
+		obj["price"] = parse_obj(data)
+		return ("HomeExpansionGoodsDef", obj)
 
 	elif obj_id == ID.HomeStampSettingDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["animationName"], data = parseUTF(data)
-		obj["slotName"], data = parseUTF(data)
-		obj["attachmentName"], data = parseUTF(data)
-		obj["loop"], data = unpackex("b", data)
-		obj["touchSetting"], data = parse_obj(data)
-		obj["music"], data = parseUTF(data)
-		obj["sound"], data = parseUTF(data)
-		return ("HomeStampSettingDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["animationName"] = parseUTF(data)
+		obj["slotName"] = parseUTF(data)
+		obj["attachmentName"] = parseUTF(data)
+		obj["loop"] = unpackex("b", data)
+		obj["touchSetting"] = parse_obj(data)
+		obj["music"] = parseUTF(data)
+		obj["sound"] = parseUTF(data)
+		return ("HomeStampSettingDef", obj)
 
 	elif obj_id == ID.IdentifiedPresentDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["limit"], data = unpackex("i", data)
-		obj["url"], data = parseUTF(data)
-		return ("IdentifiedPresentDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["limit"] = unpackex("i", data)
+		obj["url"] = parseUTF(data)
+		return ("IdentifiedPresentDef", obj)
 
 	elif obj_id == ID.InitDictDef:
 		obj = {}
-		obj["others"], data = parse_primitive_obj(ID(8), data)
-		obj["uitext"], data = parse_primitive_obj(ID(8), data)
-		return ("InitDictDef", obj), data
+		obj["others"] = parse_primitive_obj(ID(8), data)
+		obj["uitext"] = parse_primitive_obj(ID(8), data)
+		return ("InitDictDef", obj)
 
 	elif obj_id == ID.ItemParam:
 		obj = {}
-		obj["kind"], data = unpackex("i", data)
-		obj["id"], data = unpackex("i", data)
-		obj["num"], data = unpackex("i", data)
-		return ("ItemParam", obj), data
+		obj["kind"] = unpackex("i", data)
+		obj["id"] = unpackex("i", data)
+		obj["num"] = unpackex("i", data)
+		return ("ItemParam", obj)
 
 	elif obj_id == ID.KitchenwareData:
 		obj = {}
-		obj["type"], data = unpackex("i", data)
-		obj["paramMap"], data = parse_primitive_obj(ID(7), data)
-		obj["recipeNoteId"], data = unpackex("i", data)
-		obj["gudetamaId"], data = unpackex("i", data)
-		obj["restTimeSecs"], data = unpackex("i", data)
-		obj["assistUsefulIds"], data = parse_obj(data)
-		obj["assistEncodedUids"], data = parse_obj(data)
-		obj["target"], data = unpackex("i", data)
-		return ("KitchenwareData", obj), data
+		obj["type"] = unpackex("i", data)
+		obj["paramMap"] = parse_primitive_obj(ID(7), data)
+		obj["recipeNoteId"] = unpackex("i", data)
+		obj["gudetamaId"] = unpackex("i", data)
+		obj["restTimeSecs"] = unpackex("i", data)
+		obj["assistUsefulIds"] = parse_obj(data)
+		obj["assistEncodedUids"] = parse_obj(data)
+		obj["target"] = unpackex("i", data)
+		return ("KitchenwareData", obj)
 
 	elif obj_id == ID.KitchenwareDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["rsrc"], data = unpackex("i", data)
-		obj["type"], data = unpackex("i", data)
-		obj["grade"], data = unpackex("i", data)
-		obj["name"], data = parseUTF(data)
-		obj["desc"], data = parseUTF(data)
-		obj["recipeNoteIds"], data = parse_obj(data)
-		obj["conditionDesc"], data = parseUTF(data)
-		obj["existsImage"], data = unpackex("b", data)
-		obj["bgPos"], data = parse_obj(data)
-		obj["materialLayer"], data = unpackex("i", data)
-		obj["eventIds"], data = parse_obj(data)
-		return ("KitchenwareDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["rsrc"] = unpackex("i", data)
+		obj["type"] = unpackex("i", data)
+		obj["grade"] = unpackex("i", data)
+		obj["name"] = parseUTF(data)
+		obj["desc"] = parseUTF(data)
+		obj["recipeNoteIds"] = parse_obj(data)
+		obj["conditionDesc"] = parseUTF(data)
+		obj["existsImage"] = unpackex("b", data)
+		obj["bgPos"] = parse_obj(data)
+		obj["materialLayer"] = unpackex("i", data)
+		obj["eventIds"] = parse_obj(data)
+		return ("KitchenwareDef", obj)
 
 	elif obj_id == ID.KitchenwareInfo:
 		obj = {}
-		obj["unavailableRecipeNoteIds"], data = parse_obj(data)
-		obj["unavailableGudetamaIds"], data = parse_obj(data)
-		return ("KitchenwareInfo", obj), data
+		obj["unavailableRecipeNoteIds"] = parse_obj(data)
+		obj["unavailableGudetamaIds"] = parse_obj(data)
+		return ("KitchenwareInfo", obj)
 
 	elif obj_id == ID.KitchenwareParam:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["available"], data = unpackex("b", data)
-		return ("KitchenwareParam", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["available"] = unpackex("b", data)
+		return ("KitchenwareParam", obj)
 
 	elif obj_id == ID.LinearTable:
 		obj = {}
-		obj["offset"], data = unpackex("f", data)
-		obj["rate"], data = unpackex("f", data)
-		obj["indexOffset"], data = unpackex("i", data)
-		obj["indexes"], data = parse_obj(data)
-		obj["values"], data = parse_obj(data)
-		return ("LinearTable", obj), data
+		obj["offset"] = unpackex("f", data)
+		obj["rate"] = unpackex("f", data)
+		obj["indexOffset"] = unpackex("i", data)
+		obj["indexes"] = parse_obj(data)
+		obj["values"] = parse_obj(data)
+		return ("LinearTable", obj)
 
 	elif obj_id == ID.LinkageData:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["code"], data = parseUTF(data)
-		obj["notified"], data = unpackex("b", data)
-		return ("LinkageData", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["code"] = parseUTF(data)
+		obj["notified"] = unpackex("b", data)
+		return ("LinkageData", obj)
 
 	elif obj_id == ID.LinkageDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["rsrc"], data = unpackex("i", data)
-		obj["title"], data = parseUTF(data)
-		obj["name"], data = parseUTF(data)
-		obj["linkTitle"], data = parseUTF(data)
-		obj["linkMessage"], data = parseUTF(data)
-		obj["linkUrl"], data = parse_obj(data)
-		obj["conditionDesc"], data = parseUTF(data)
-		return ("LinkageDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["rsrc"] = unpackex("i", data)
+		obj["title"] = parseUTF(data)
+		obj["name"] = parseUTF(data)
+		obj["linkTitle"] = parseUTF(data)
+		obj["linkMessage"] = parseUTF(data)
+		obj["linkUrl"] = parse_obj(data)
+		obj["conditionDesc"] = parseUTF(data)
+		return ("LinkageDef", obj)
 
 	elif obj_id == ID.MailPresentResult:
 		obj = {}
-		obj["items"], data = parse_obj(data)
-		obj["params"], data = parse_obj(data)
-		return ("MailPresentResult", obj), data
+		obj["items"] = parse_obj(data)
+		obj["params"] = parse_obj(data)
+		return ("MailPresentResult", obj)
 
 	elif obj_id == ID.MetalShopDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["name"], data = parseUTF(data)
-		obj["items"], data = parse_obj(data)
-		return ("MetalShopDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["name"] = parseUTF(data)
+		obj["items"] = parse_obj(data)
+		return ("MetalShopDef", obj)
 
 	elif obj_id == ID.MetalShopItemDef:
 		obj = {}
-		obj["key"], data = unpackex("i", data)
-		obj["rsrc"], data = unpackex("b", data)
-		obj["value"], data = unpackex("i", data)
-		obj["bonus"], data = unpackex("i", data)
-		obj["campaign"], data = unpackex("i", data)
-		obj["price"], data = unpackex("i", data)
-		obj["product_id"], data = parseUTF(data)
-		obj["items"], data = parse_obj(data)
-		obj["limit"], data = unpackex("i", data)
-		obj["overlap"], data = parse_obj(data)
-		obj["ranklimit"], data = unpackex("i", data)
-		obj["applimit"], data = unpackex("i", data)
-		obj["info"], data = unpackex("i", data)
-		return ("MetalShopItemDef", obj), data
+		obj["key"] = unpackex("i", data)
+		obj["rsrc"] = unpackex("b", data)
+		obj["value"] = unpackex("i", data)
+		obj["bonus"] = unpackex("i", data)
+		obj["campaign"] = unpackex("i", data)
+		obj["price"] = unpackex("i", data)
+		obj["product_id"] = parseUTF(data)
+		obj["items"] = parse_obj(data)
+		obj["limit"] = unpackex("i", data)
+		obj["overlap"] = parse_obj(data)
+		obj["ranklimit"] = unpackex("i", data)
+		obj["applimit"] = unpackex("i", data)
+		obj["info"] = unpackex("i", data)
+		return ("MetalShopItemDef", obj)
 
 	elif obj_id == ID.MissionConstants:
 		obj = {}
-		return ("MissionConstants", obj), data
+		return ("MissionConstants", obj)
 
 	elif obj_id == ID.MissionData:
 		obj = {}
-		obj["key"], data = unpackex("i", data)
-		obj["param"], data = parse_obj(data)
-		obj["currentValue"], data = unpackex("h", data)
-		obj["id"], data = unpackex("h", data)
-		return ("MissionData", obj), data
+		obj["key"] = unpackex("i", data)
+		obj["param"] = parse_obj(data)
+		obj["currentValue"] = unpackex("h", data)
+		obj["id"] = unpackex("h", data)
+		return ("MissionData", obj)
 
 	elif obj_id == ID.MissionDef:
 		obj = {}
-		obj["id"], data = unpackex("h", data)
-		obj["number"], data = unpackex("i", data)
-		obj["counterType"], data = unpackex("i", data)
-		obj["eventId"], data = unpackex("i", data)
-		obj["eventTypeFlags"], data = unpackex("i", data)
-		obj["enableCountryFlags"], data = parse_obj(data)
-		return ("MissionDef", obj), data
+		obj["id"] = unpackex("h", data)
+		obj["number"] = unpackex("i", data)
+		obj["counterType"] = unpackex("i", data)
+		obj["eventId"] = unpackex("i", data)
+		obj["eventTypeFlags"] = unpackex("i", data)
+		obj["enableCountryFlags"] = parse_obj(data)
+		return ("MissionDef", obj)
 
 	elif obj_id == ID.MissionParam:
 		obj = {}
-		obj["number"], data = unpackex("i", data)
-		obj["type"], data = unpackex("b", data)
-		obj["category"], data = unpackex("b", data)
-		obj["guide"], data = unpackex("h", data)
-		obj["goalValue"], data = unpackex("h", data)
-		obj["finishSecs"], data = unpackex("i", data)
-		obj["targetDescKey"], data = parseUTF(data)
-		obj["titleKey"], data = parseUTF(data)
-		obj["nextTitleKey"], data = parseUTF(data)
-		obj["rewards"], data = parse_obj(data)
-		obj["titleParam"], data = parse_obj(data)
-		obj["counterType"], data = unpackex("i", data)
-		return ("MissionParam", obj), data
+		obj["number"] = unpackex("i", data)
+		obj["type"] = unpackex("b", data)
+		obj["category"] = unpackex("b", data)
+		obj["guide"] = unpackex("h", data)
+		obj["goalValue"] = unpackex("h", data)
+		obj["finishSecs"] = unpackex("i", data)
+		obj["targetDescKey"] = parseUTF(data)
+		obj["titleKey"] = parseUTF(data)
+		obj["nextTitleKey"] = parseUTF(data)
+		obj["rewards"] = parse_obj(data)
+		obj["titleParam"] = parse_obj(data)
+		obj["counterType"] = unpackex("i", data)
+		return ("MissionParam", obj)
 
 	elif obj_id == ID.MonthlyPremiumBonusDef:
 		obj = {}
-		obj["id"], data = unpackex("h", data)
-		obj["validDays"], data = unpackex("h", data)
-		obj["item"], data = parse_obj(data)
-		obj["bonusItems"], data = parse_obj(data)
-		return ("MonthlyPremiumBonusDef", obj), data
+		obj["id"] = unpackex("h", data)
+		obj["validDays"] = unpackex("h", data)
+		obj["item"] = parse_obj(data)
+		obj["bonusItems"] = parse_obj(data)
+		return ("MonthlyPremiumBonusDef", obj)
 
 	elif obj_id == ID.NoticeFlagData:
 		obj = {}
-		obj["noticeFlags"], data = parse_obj(data)
-		obj["tutorialProgress"], data = unpackex("i", data)
-		obj["bitFlags"], data = unpackex("i", data)
-		return ("NoticeFlagData", obj), data
+		obj["noticeFlags"] = parse_obj(data)
+		obj["tutorialProgress"] = unpackex("i", data)
+		obj["bitFlags"] = unpackex("i", data)
+		return ("NoticeFlagData", obj)
 
 	elif obj_id == ID.OnlyShowItemDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["rsrc"], data = unpackex("i", data)
-		obj["name"], data = parseUTF(data)
-		obj["desc"], data = parseUTF(data)
-		return ("OnlyShowItemDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["rsrc"] = unpackex("i", data)
+		obj["name"] = parseUTF(data)
+		obj["desc"] = parseUTF(data)
+		return ("OnlyShowItemDef", obj)
 
 	elif obj_id == ID.Packet:
 		obj = {}
-		obj["type"], data = unpackex("i", data)
-		obj["time"], data = unpackex("i", data)
-		obj["payloadInt"], data = parse_obj(data)
-		obj["payloadObj0"], data = parse_obj(data)
-		obj["payloadObj1"], data = parse_obj(data)
-		obj["payloadExtra"], data = parse_obj(data)
-		obj["sequence"], data = unpackex("h", data)
-		obj["relogin"], data = unpackex("b", data)
-		return ("Packet", obj), data
+		obj["type"] = unpackex("i", data)
+		obj["time"] = unpackex("i", data)
+		obj["payloadInt"] = parse_obj(data)
+		obj["payloadObj0"] = parse_obj(data)
+		obj["payloadObj1"] = parse_obj(data)
+		obj["payloadExtra"] = parse_obj(data)
+		obj["sequence"] = unpackex("h", data)
+		obj["relogin"] = unpackex("b", data)
+		return ("Packet", obj)
 
 	elif obj_id == ID.PossibleRouletteParam:
 		obj = {}
-		obj["type"], data = unpackex("b", data)
-		obj["percent"], data = unpackex("i", data)
-		return ("PossibleRouletteParam", obj), data
+		obj["type"] = unpackex("b", data)
+		obj["percent"] = unpackex("i", data)
+		return ("PossibleRouletteParam", obj)
 
 	elif obj_id == ID.PresentLogData:
 		obj = {}
-		obj["encodedUid"], data = unpackex("i", data)
-		obj["playerRank"], data = unpackex("i", data)
-		obj["playerName"], data = parseUTF(data)
-		obj["avatar"], data = unpackex("i", data)
-		obj["itemId"], data = unpackex("i", data)
-		obj["itemNum"], data = unpackex("i", data)
-		obj["time"], data = unpackex("i", data)
-		obj["snsProfileImage"], data = parse_obj(data)
-		obj["snsType"], data = unpackex("b", data)
-		return ("PresentLogData", obj), data
+		obj["encodedUid"] = unpackex("i", data)
+		obj["playerRank"] = unpackex("i", data)
+		obj["playerName"] = parseUTF(data)
+		obj["avatar"] = unpackex("i", data)
+		obj["itemId"] = unpackex("i", data)
+		obj["itemNum"] = unpackex("i", data)
+		obj["time"] = unpackex("i", data)
+		obj["snsProfileImage"] = parse_obj(data)
+		obj["snsType"] = unpackex("b", data)
+		return ("PresentLogData", obj)
 
 	elif obj_id == ID.PromotionBannerSettingDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["allowCountriyCodes"], data = parse_obj(data)
-		obj["allowCountryLocales"], data = parse_obj(data)
-		obj["bannerID"], data = parseUTF(data)
-		obj["visible"], data = unpackex("b", data)
-		obj["startTimeSecs"], data = unpackex("i", data)
-		obj["limitTimeSecs"], data = unpackex("i", data)
-		obj["endTimeStr"], data = parseUTF(data)
-		obj["browserType"], data = unpackex("b", data)
-		obj["webURL"], data = parse_obj(data)
-		return ("PromotionBannerSettingDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["allowCountriyCodes"] = parse_obj(data)
+		obj["allowCountryLocales"] = parse_obj(data)
+		obj["bannerID"] = parseUTF(data)
+		obj["visible"] = unpackex("b", data)
+		obj["startTimeSecs"] = unpackex("i", data)
+		obj["limitTimeSecs"] = unpackex("i", data)
+		obj["endTimeStr"] = parseUTF(data)
+		obj["browserType"] = unpackex("b", data)
+		obj["webURL"] = parse_obj(data)
+		return ("PromotionBannerSettingDef", obj)
 
 	elif obj_id == ID.PromotionInterstitialSettingDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["allowCountriyCodes"], data = parse_obj(data)
-		obj["allowCountryLocales"], data = parse_obj(data)
-		obj["imageIDs"], data = parse_obj(data)
-		obj["visible"], data = unpackex("b", data)
-		obj["startTimeSecs"], data = unpackex("i", data)
-		obj["limitTimeSecs"], data = unpackex("i", data)
-		obj["endTimeStr"], data = parseUTF(data)
-		obj["browserType"], data = unpackex("b", data)
-		obj["webURL"], data = parse_obj(data)
-		obj["rate"], data = unpackex("i", data)
-		obj["intervalSec"], data = unpackex("i", data)
-		return ("PromotionInterstitialSettingDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["allowCountriyCodes"] = parse_obj(data)
+		obj["allowCountryLocales"] = parse_obj(data)
+		obj["imageIDs"] = parse_obj(data)
+		obj["visible"] = unpackex("b", data)
+		obj["startTimeSecs"] = unpackex("i", data)
+		obj["limitTimeSecs"] = unpackex("i", data)
+		obj["endTimeStr"] = parseUTF(data)
+		obj["browserType"] = unpackex("b", data)
+		obj["webURL"] = parse_obj(data)
+		obj["rate"] = unpackex("i", data)
+		obj["intervalSec"] = unpackex("i", data)
+		return ("PromotionInterstitialSettingDef", obj)
 
 	elif obj_id == ID.PromotionVideoDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["movie"], data = unpackex("i", data)
-		obj["endcard"], data = unpackex("i", data)
-		obj["landscape"], data = unpackex("b", data)
-		obj["urlApple"], data = parseUTF(data)
-		obj["urlGoogle"], data = parseUTF(data)
-		obj["link"], data = parseUTF(data)
-		obj["locales"], data = parse_obj(data)
-		return ("PromotionVideoDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["movie"] = unpackex("i", data)
+		obj["endcard"] = unpackex("i", data)
+		obj["landscape"] = unpackex("b", data)
+		obj["urlApple"] = parseUTF(data)
+		obj["urlGoogle"] = parseUTF(data)
+		obj["link"] = parseUTF(data)
+		obj["locales"] = parse_obj(data)
+		return ("PromotionVideoDef", obj)
 
 	elif obj_id == ID.PurchasePresentDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["presents"], data = parse_obj(data)
-		obj["message"], data = parseUTF(data)
-		return ("PurchasePresentDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["presents"] = parse_obj(data)
+		obj["message"] = parseUTF(data)
+		return ("PurchasePresentDef", obj)
 
 	elif obj_id == ID.PurchasePresentItemDef:
 		obj = {}
-		obj["price"], data = unpackex("i", data)
-		obj["message"], data = parseUTF(data)
-		obj["items"], data = parse_obj(data)
-		return ("PurchasePresentItemDef", obj), data
+		obj["price"] = unpackex("i", data)
+		obj["message"] = parseUTF(data)
+		obj["items"] = parse_obj(data)
+		return ("PurchasePresentItemDef", obj)
 
 	elif obj_id == ID.QnqConstants:
 		obj = {}
-		return ("QnqConstants", obj), data
+		return ("QnqConstants", obj)
 
 	elif obj_id == ID.QnqServletConstants:
 		obj = {}
-		return ("QnqServletConstants", obj), data
+		return ("QnqServletConstants", obj)
 
 	elif obj_id == ID.QuestionDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["question"], data = parseUTF(data)
-		obj["questionVoiceId"], data = unpackex("i", data)
-		obj["params"], data = parse_obj(data)
-		return ("QuestionDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["question"] = parseUTF(data)
+		obj["questionVoiceId"] = unpackex("i", data)
+		obj["params"] = parse_obj(data)
+		return ("QuestionDef", obj)
 
 	elif obj_id == ID.QuestionInfo:
 		obj = {}
-		obj["encodedUid"], data = unpackex("i", data)
-		obj["avatar"], data = unpackex("i", data)
-		obj["friendName"], data = parseUTF(data)
-		obj["questionId"], data = unpackex("i", data)
-		obj["choiceIndex"], data = unpackex("i", data)
-		obj["snsProfileImage"], data = parse_obj(data)
-		obj["snsType"], data = unpackex("b", data)
-		return ("QuestionInfo", obj), data
+		obj["encodedUid"] = unpackex("i", data)
+		obj["avatar"] = unpackex("i", data)
+		obj["friendName"] = parseUTF(data)
+		obj["questionId"] = unpackex("i", data)
+		obj["choiceIndex"] = unpackex("i", data)
+		obj["snsProfileImage"] = parse_obj(data)
+		obj["snsType"] = unpackex("b", data)
+		return ("QuestionInfo", obj)
 
 	elif obj_id == ID.QuestionParam:
 		obj = {}
-		obj["choice"], data = parseUTF(data)
-		obj["message"], data = parseUTF(data)
-		obj["messageVoiceId"], data = unpackex("i", data)
-		return ("QuestionParam", obj), data
+		obj["choice"] = parseUTF(data)
+		obj["message"] = parseUTF(data)
+		obj["messageVoiceId"] = unpackex("i", data)
+		return ("QuestionParam", obj)
 
 	elif obj_id == ID.RankingContentDef:
 		obj = {}
-		obj["type"], data = unpackex("i", data)
-		obj["argi"], data = unpackex("i", data)
-		obj["rewardId"], data = unpackex("i", data)
-		obj["daily"], data = unpackex("b", data)
-		obj["guild"], data = unpackex("b", data)
-		obj["deliverTableId"], data = unpackex("i", data)
-		obj["deliverPtsPercentMap"], data = parse_primitive_obj(ID(7), data)
-		return ("RankingContentDef", obj), data
+		obj["type"] = unpackex("i", data)
+		obj["argi"] = unpackex("i", data)
+		obj["rewardId"] = unpackex("i", data)
+		obj["daily"] = unpackex("b", data)
+		obj["guild"] = unpackex("b", data)
+		obj["deliverTableId"] = unpackex("i", data)
+		obj["deliverPtsPercentMap"] = parse_primitive_obj(ID(7), data)
+		return ("RankingContentDef", obj)
 
 	elif obj_id == ID.RankingDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["title"], data = parseUTF(data)
-		obj["desc"], data = parseUTF(data)
-		obj["storyComicId"], data = unpackex("i", data)
-		obj["howtoComicId"], data = unpackex("i", data)
-		obj["content"], data = parse_obj(data)
-		obj["groupType"], data = unpackex("i", data)
-		obj["groupIdIndexMap"], data = parse_primitive_obj(ID(7), data)
-		obj["hasDefaultGroupContent"], data = unpackex("b", data)
-		obj["rankTextColor"], data = unpackex("i", data)
-		obj["pointTextColor"], data = unpackex("i", data)
-		obj["balloonTextColor"], data = unpackex("i", data)
-		obj["rewardTextColor"], data = unpackex("i", data)
-		obj["rankingTitleTextColor"], data = unpackex("i", data)
-		obj["topRecordMatColor"], data = unpackex("i", data)
-		obj["rankingRewardMatColor"], data = unpackex("i", data)
-		obj["pointRewardMatColor"], data = unpackex("i", data)
-		obj["levelRewardMatColor"], data = unpackex("i", data)
-		obj["topRecordBgMatColor"], data = unpackex("i", data)
-		obj["rankingRewardBgMatColor"], data = unpackex("i", data)
-		obj["pointRewardBgMatColor"], data = unpackex("i", data)
-		obj["levelRewardBgMatColor"], data = unpackex("i", data)
-		obj["recordMatColor"], data = unpackex("i", data)
-		obj["rankingRewardLineColor"], data = unpackex("i", data)
-		obj["pointRewardLineColor"], data = unpackex("i", data)
-		obj["levelRewardLineColor"], data = unpackex("i", data)
-		return ("RankingDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["title"] = parseUTF(data)
+		obj["desc"] = parseUTF(data)
+		obj["storyComicId"] = unpackex("i", data)
+		obj["howtoComicId"] = unpackex("i", data)
+		obj["content"] = parse_obj(data)
+		obj["groupType"] = unpackex("i", data)
+		obj["groupIdIndexMap"] = parse_primitive_obj(ID(7), data)
+		obj["hasDefaultGroupContent"] = unpackex("b", data)
+		obj["rankTextColor"] = unpackex("i", data)
+		obj["pointTextColor"] = unpackex("i", data)
+		obj["balloonTextColor"] = unpackex("i", data)
+		obj["rewardTextColor"] = unpackex("i", data)
+		obj["rankingTitleTextColor"] = unpackex("i", data)
+		obj["topRecordMatColor"] = unpackex("i", data)
+		obj["rankingRewardMatColor"] = unpackex("i", data)
+		obj["pointRewardMatColor"] = unpackex("i", data)
+		obj["levelRewardMatColor"] = unpackex("i", data)
+		obj["topRecordBgMatColor"] = unpackex("i", data)
+		obj["rankingRewardBgMatColor"] = unpackex("i", data)
+		obj["pointRewardBgMatColor"] = unpackex("i", data)
+		obj["levelRewardBgMatColor"] = unpackex("i", data)
+		obj["recordMatColor"] = unpackex("i", data)
+		obj["rankingRewardLineColor"] = unpackex("i", data)
+		obj["pointRewardLineColor"] = unpackex("i", data)
+		obj["levelRewardLineColor"] = unpackex("i", data)
+		return ("RankingDef", obj)
 
 	elif obj_id == ID.RankingInfo:
 		obj = {}
-		obj["contentIndex"], data = unpackex("i", data)
-		obj["type"], data = unpackex("i", data)
-		obj["contentTitle"], data = parseUTF(data)
-		obj["argi"], data = unpackex("i", data)
-		obj["showOnly"], data = unpackex("b", data)
-		obj["guild"], data = unpackex("b", data)
-		obj["desc"], data = parseUTF(data)
-		obj["myPoint"], data = unpackex("i", data)
-		obj["myRoughPlace"], data = unpackex("i", data)
-		obj["topRecords"], data = parse_obj(data)
-		obj["rewardId"], data = unpackex("i", data)
-		obj["rewardPlaceAndPoint"], data = parse_obj(data)
-		obj["topRecordSizeMax"], data = unpackex("i", data)
-		obj["totalPoint"], data = unpackex("i", data)
-		return ("RankingInfo", obj), data
+		obj["contentIndex"] = unpackex("i", data)
+		obj["type"] = unpackex("i", data)
+		obj["contentTitle"] = parseUTF(data)
+		obj["argi"] = unpackex("i", data)
+		obj["showOnly"] = unpackex("b", data)
+		obj["guild"] = unpackex("b", data)
+		obj["desc"] = parseUTF(data)
+		obj["myPoint"] = unpackex("i", data)
+		obj["myRoughPlace"] = unpackex("i", data)
+		obj["topRecords"] = parse_obj(data)
+		obj["rewardId"] = unpackex("i", data)
+		obj["rewardPlaceAndPoint"] = parse_obj(data)
+		obj["topRecordSizeMax"] = unpackex("i", data)
+		obj["totalPoint"] = unpackex("i", data)
+		return ("RankingInfo", obj)
 
 	elif obj_id == ID.RankingRecord:
 		obj = {}
-		obj["point"], data = unpackex("i", data)
-		obj["encodeUid"], data = unpackex("i", data)
-		obj["playerName"], data = parseUTF(data)
-		obj["avatar"], data = unpackex("i", data)
-		obj["snsType"], data = unpackex("i", data)
-		obj["snsProfileImage"], data = parse_obj(data)
-		return ("RankingRecord", obj), data
+		obj["point"] = unpackex("i", data)
+		obj["encodeUid"] = unpackex("i", data)
+		obj["playerName"] = parseUTF(data)
+		obj["avatar"] = unpackex("i", data)
+		obj["snsType"] = unpackex("i", data)
+		obj["snsProfileImage"] = parse_obj(data)
+		return ("RankingRecord", obj)
 
 	elif obj_id == ID.RankingRewardDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["rewardIdTable"], data = parse_obj(data)
-		obj["rankingRewards"], data = parse_obj(data)
-		obj["pointRewards"], data = parse_obj(data)
-		obj["globalRewards"], data = parse_obj(data)
-		return ("RankingRewardDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["rewardIdTable"] = parse_obj(data)
+		obj["rankingRewards"] = parse_obj(data)
+		obj["pointRewards"] = parse_obj(data)
+		obj["globalRewards"] = parse_obj(data)
+		return ("RankingRewardDef", obj)
 
 	elif obj_id == ID.RankingRewardItemDef:
 		obj = {}
-		obj["sortedIndex"], data = unpackex("i", data)
-		obj["last"], data = unpackex("b", data)
-		obj["argi"], data = unpackex("i", data)
-		obj["screeningItems"], data = parse_obj(data)
-		return ("RankingRewardItemDef", obj), data
+		obj["sortedIndex"] = unpackex("i", data)
+		obj["last"] = unpackex("b", data)
+		obj["argi"] = unpackex("i", data)
+		obj["screeningItems"] = parse_obj(data)
+		return ("RankingRewardItemDef", obj)
 
 	elif obj_id == ID.RecipeNoteData:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["visible"], data = unpackex("b", data)
-		obj["available"], data = unpackex("b", data)
-		obj["purchased"], data = unpackex("b", data)
-		obj["targetValue"], data = unpackex("i", data)
-		obj["currentValue"], data = unpackex("i", data)
-		return ("RecipeNoteData", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["visible"] = unpackex("b", data)
+		obj["available"] = unpackex("b", data)
+		obj["purchased"] = unpackex("b", data)
+		obj["targetValue"] = unpackex("i", data)
+		obj["currentValue"] = unpackex("i", data)
+		return ("RecipeNoteData", obj)
 
 	elif obj_id == ID.RecipeNoteDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["rsrc"], data = unpackex("i", data)
-		obj["kitchenwareId"], data = unpackex("i", data)
-		obj["name"], data = parseUTF(data)
-		obj["desc"], data = parseUTF(data)
-		obj["minutes"], data = unpackex("i", data)
-		obj["premises"], data = parse_obj(data)
-		obj["conditionDesc"], data = parseUTF(data)
-		obj["eventId"], data = unpackex("i", data)
-		obj["price"], data = unpackex("i", data)
-		obj["defaults"], data = parse_obj(data)
-		obj["appends"], data = parse_obj(data)
-		obj["happeningIds"], data = parse_obj(data)
-		obj["failureIds"], data = parse_obj(data)
-		obj["hasBonusPrize"], data = unpackex("b", data)
-		obj["targetType"], data = unpackex("i", data)
-		obj["targetId"], data = unpackex("i", data)
-		return ("RecipeNoteDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["rsrc"] = unpackex("i", data)
+		obj["kitchenwareId"] = unpackex("i", data)
+		obj["name"] = parseUTF(data)
+		obj["desc"] = parseUTF(data)
+		obj["minutes"] = unpackex("i", data)
+		obj["premises"] = parse_obj(data)
+		obj["conditionDesc"] = parseUTF(data)
+		obj["eventId"] = unpackex("i", data)
+		obj["price"] = unpackex("i", data)
+		obj["defaults"] = parse_obj(data)
+		obj["appends"] = parse_obj(data)
+		obj["happeningIds"] = parse_obj(data)
+		obj["failureIds"] = parse_obj(data)
+		obj["hasBonusPrize"] = unpackex("b", data)
+		obj["targetType"] = unpackex("i", data)
+		obj["targetId"] = unpackex("i", data)
+		return ("RecipeNoteDef", obj)
 
 	elif obj_id == ID.RuleDef:
 		obj = {}
-		obj["focusGainedLimitTimeMinites"], data = unpackex("b", data)
-		obj["reloadFollowerTime"], data = unpackex("i", data)
-		obj["ruleFlags"], data = parse_obj(data)
-		obj["roundingFollowPastDay"], data = unpackex("b", data)
-		obj["locale"], data = parseUTF(data)
-		obj["localeCode"], data = parse_obj(data)
-		obj["titleMusic"], data = unpackex("i", data)
-		obj["heavenTimeSecs"], data = unpackex("i", data)
-		obj["touchRewards"], data = parse_obj(data)
-		obj["carnaviIds"], data = parse_obj(data)
-		obj["enabledMoneyShop"], data = unpackex("b", data)
-		obj["menuItems"], data = parse_obj(data)
-		obj["shopItems"], data = parse_obj(data)
-		obj["collectionTypes"], data = parse_obj(data)
-		obj["hurryUpReduceMinutesPerMetal"], data = unpackex("i", data)
-		obj["hurryUpMetalBase"], data = unpackex("i", data)
-		obj["cookingTooMatchTimeHours"], data = unpackex("i", data)
-		obj["lowerLimitPercentForRouletteSpeed"], data = unpackex("i", data)
-		obj["hurryUpItemBaseMap"], data = parse_primitive_obj(ID(7), data)
-		obj["hurryUpReduceMinutesPerItem"], data = parse_primitive_obj(ID(7), data)
-		obj["gachaRateScreeningLevel"], data = unpackex("i", data)
-		obj["missionCommentAchievePercent"], data = parse_obj(data)
-		obj["maxFriendsExtension"], data = unpackex("h", data)
-		obj["friendsExtensionValue"], data = unpackex("h", data)
-		obj["friendsExtensionPrices"], data = parse_obj(data)
-		obj["updateFollowerTime"], data = unpackex("i", data)
-		obj["maximumFriendPresentForGPWhileEvent"], data = unpackex("i", data)
-		obj["friendlyValueByAssist"], data = unpackex("i", data)
-		obj["gudetamaTeamIds"], data = parse_obj(data)
-		obj["minimumMessageTime"], data = unpackex("i", data)
-		obj["messagePercents"], data = parse_obj(data)
-		obj["messageResetHourOffset"], data = unpackex("i", data)
-		obj["friendPresentCost"], data = unpackex("i", data)
-		obj["friendPresentGp"], data = unpackex("i", data)
-		obj["friendPresentGpCountPerDay"], data = unpackex("i", data)
-		obj["friendPresentGpGlobalCountPerDay"], data = unpackex("i", data)
-		obj["freeFriendPresentCountPerDay"], data = unpackex("i", data)
-		obj["placeArGudetamaNumTable"], data = parse_obj(data)
-		obj["placeArStampNumTable"], data = parse_obj(data)
-		obj["placeHomeStampNumTable"], data = parse_obj(data)
-		obj["numScreeningPresentLogs"], data = unpackex("i", data)
-		obj["maxFriendPresentMoneyPerRank"], data = unpackex("i", data)
-		obj["maxAssistPerDay"], data = unpackex("i", data)
-		obj["defStampSpainPath"], data = parseUTF(data)
-		obj["imobileAndroidPlacement"], data = parse_obj(data)
-		obj["imobileIOSPlacement"], data = parse_obj(data)
-		obj["fiveAdsAndroidId"], data = parseUTF(data)
-		obj["fiveAdsIOSId"], data = parseUTF(data)
-		obj["fiveAdsAndroidSlotId"], data = parse_obj(data)
-		obj["fiveAdsIOSSlotId"], data = parse_obj(data)
-		obj["nendAdsAndroidIds"], data = parse_obj(data)
-		obj["nendAdsIOSIds"], data = parse_obj(data)
-		obj["eventBannerUpdateTime"], data = unpackex("i", data)
-		obj["bannerCircleSec"], data = unpackex("i", data)
-		obj["bannerCircle"], data = unpackex("b", data)
-		obj["disableBannerOSVersionMap"], data = parse_primitive_obj(ID(8), data)
-		obj["maioAdsAndroidId"], data = parseUTF(data)
-		obj["maioAdsIOSId"], data = parseUTF(data)
-		obj["maioAdsZoneAndroidId"], data = parseUTF(data)
-		obj["maioAdsZoneIOSId"], data = parseUTF(data)
-		obj["videoTraceErrorSec"], data = unpackex("i", data)
-		obj["tapjoyAdsAndroidId"], data = parse_obj(data)
-		obj["tapjoyAdsIOSId"], data = parse_obj(data)
-		obj["vangleAdsAndroidId"], data = parseUTF(data)
-		obj["vangleAdsIOSId"], data = parseUTF(data)
-		obj["vangleAdsAndroidPlacementIds"], data = parse_obj(data)
-		obj["vangleAdsIOSPlacementIds"], data = parse_obj(data)
-		obj["ironsourceAdsAndroidId"], data = parseUTF(data)
-		obj["ironsourceAdsIOSId"], data = parseUTF(data)
-		obj["ironSourceGlobalAdsAndroidId"], data = parseUTF(data)
-		obj["ironSourceGlobalAdsIOSId"], data = parseUTF(data)
-		obj["admobBannerAndroidId"], data = parseUTF(data)
-		obj["admobBannerIOSId"], data = parseUTF(data)
-		obj["admobVideoAndroidId"], data = parseUTF(data)
-		obj["admobVideoIOSId"], data = parseUTF(data)
-		obj["nendAndroidIds"], data = parse_obj(data)
-		obj["nendIOSIds"], data = parse_obj(data)
-		obj["chartboosVideoAndroidIds"], data = parse_obj(data)
-		obj["chartboosVideoIOSIds"], data = parse_obj(data)
-		obj["promotionVideoNames"], data = parse_obj(data)
-		obj["promotionVideoIdAndRatio"], data = parse_obj(data)
-		obj["priorityMaxVideoCount"], data = unpackex("i", data)
-		obj["preLoadingVideoSecs"], data = unpackex("i", data)
-		obj["videoLodingIntervalMillisec"], data = unpackex("i", data)
-		obj["videoGlobalLodingIntervalMillisec"], data = unpackex("i", data)
-		obj["videoInitGiveupMilliSec"], data = unpackex("i", data)
-		obj["imobileInterstitialAndroidPlacement"], data = parse_obj(data)
-		obj["imobileInterstitialIOSPlacement"], data = parse_obj(data)
-		obj["nendInterstitialAndroid"], data = parse_obj(data)
-		obj["nendInterstitialIOS"], data = parse_obj(data)
-		obj["interstitiaIntervalSecs"], data = unpackex("i", data)
-		obj["interstitiaIntervalGlobalSecs"], data = unpackex("i", data)
-		obj["ironVideoPlacementAndroidId"], data = parse_obj(data)
-		obj["ironVideoPlacementIOSId"], data = parse_obj(data)
-		obj["ironOfferPlacementAndroidId"], data = parse_obj(data)
-		obj["ironOfferPlacementIOSId"], data = parse_obj(data)
-		obj["ironInterPlacementAndroidId"], data = parse_obj(data)
-		obj["ironInterPlacementIOSId"], data = parse_obj(data)
-		obj["twitter_Key"], data = parseUTF(data)
-		obj["twitter_Secret"], data = parseUTF(data)
-		obj["facebook_Key"], data = parseUTF(data)
-		obj["useSnsTwitter"], data = unpackex("b", data)
-		obj["useSnsFacebook"], data = unpackex("b", data)
-		obj["tiwtterSchemeAndroidURL"], data = parseUTF(data)
-		obj["tiwtterSchemeIOSURL"], data = parseUTF(data)
-		obj["snsLinkBonusNum"], data = unpackex("b", data)
-		obj["usefulShopShortcut"], data = unpackex("b", data)
-		obj["presentDeliverPtsPercent"], data = unpackex("i", data)
-		obj["snsShareBonusType"], data = unpackex("i", data)
-		obj["cupGachaOpenMinPerTier"], data = unpackex("i", data)
-		obj["cupGachaOpenMetalPerTier"], data = unpackex("i", data)
-		obj["cupGachaShortMinByAd"], data = unpackex("b", data)
-		obj["cupGachaShortNumByAd"], data = unpackex("b", data)
-		obj["cupGachaMailKeepDay"], data = unpackex("h", data)
-		obj["useHomeDecoEachType"], data = unpackex("b", data)
-		obj["cookingShortCut"], data = unpackex("b", data)
-		obj["memoryCookingRecipe"], data = unpackex("b", data)
-		obj["frameIds"], data = parse_obj(data)
-		obj["titleName"], data = parseUTF(data)
-		obj["titleSpineName"], data = parseUTF(data)
-		obj["titleGudetamaSpineName"], data = parseUTF(data)
-		obj["duplicateSceneCheckClasses"], data = parse_obj(data)
-		obj["titleNameCountry"], data = parse_primitive_obj(ID(8), data)
-		obj["titleSpineNameCountry"], data = parse_primitive_obj(ID(8), data)
-		obj["titleGudetamaSpineNameCountry"], data = parse_primitive_obj(ID(8), data)
-		return ("RuleDef", obj), data
+		obj["focusGainedLimitTimeMinites"] = unpackex("b", data)
+		obj["reloadFollowerTime"] = unpackex("i", data)
+		obj["ruleFlags"] = parse_obj(data)
+		obj["roundingFollowPastDay"] = unpackex("b", data)
+		obj["locale"] = parseUTF(data)
+		obj["localeCode"] = parse_obj(data)
+		obj["titleMusic"] = unpackex("i", data)
+		obj["heavenTimeSecs"] = unpackex("i", data)
+		obj["touchRewards"] = parse_obj(data)
+		obj["carnaviIds"] = parse_obj(data)
+		obj["enabledMoneyShop"] = unpackex("b", data)
+		obj["menuItems"] = parse_obj(data)
+		obj["shopItems"] = parse_obj(data)
+		obj["collectionTypes"] = parse_obj(data)
+		obj["hurryUpReduceMinutesPerMetal"] = unpackex("i", data)
+		obj["hurryUpMetalBase"] = unpackex("i", data)
+		obj["cookingTooMatchTimeHours"] = unpackex("i", data)
+		obj["lowerLimitPercentForRouletteSpeed"] = unpackex("i", data)
+		obj["hurryUpItemBaseMap"] = parse_primitive_obj(ID(7), data)
+		obj["hurryUpReduceMinutesPerItem"] = parse_primitive_obj(ID(7), data)
+		obj["gachaRateScreeningLevel"] = unpackex("i", data)
+		obj["missionCommentAchievePercent"] = parse_obj(data)
+		obj["maxFriendsExtension"] = unpackex("h", data)
+		obj["friendsExtensionValue"] = unpackex("h", data)
+		obj["friendsExtensionPrices"] = parse_obj(data)
+		obj["updateFollowerTime"] = unpackex("i", data)
+		obj["maximumFriendPresentForGPWhileEvent"] = unpackex("i", data)
+		obj["friendlyValueByAssist"] = unpackex("i", data)
+		obj["gudetamaTeamIds"] = parse_obj(data)
+		obj["minimumMessageTime"] = unpackex("i", data)
+		obj["messagePercents"] = parse_obj(data)
+		obj["messageResetHourOffset"] = unpackex("i", data)
+		obj["friendPresentCost"] = unpackex("i", data)
+		obj["friendPresentGp"] = unpackex("i", data)
+		obj["friendPresentGpCountPerDay"] = unpackex("i", data)
+		obj["friendPresentGpGlobalCountPerDay"] = unpackex("i", data)
+		obj["freeFriendPresentCountPerDay"] = unpackex("i", data)
+		obj["placeArGudetamaNumTable"] = parse_obj(data)
+		obj["placeArStampNumTable"] = parse_obj(data)
+		obj["placeHomeStampNumTable"] = parse_obj(data)
+		obj["numScreeningPresentLogs"] = unpackex("i", data)
+		obj["maxFriendPresentMoneyPerRank"] = unpackex("i", data)
+		obj["maxAssistPerDay"] = unpackex("i", data)
+		obj["defStampSpainPath"] = parseUTF(data)
+		obj["imobileAndroidPlacement"] = parse_obj(data)
+		obj["imobileIOSPlacement"] = parse_obj(data)
+		obj["fiveAdsAndroidId"] = parseUTF(data)
+		obj["fiveAdsIOSId"] = parseUTF(data)
+		obj["fiveAdsAndroidSlotId"] = parse_obj(data)
+		obj["fiveAdsIOSSlotId"] = parse_obj(data)
+		obj["nendAdsAndroidIds"] = parse_obj(data)
+		obj["nendAdsIOSIds"] = parse_obj(data)
+		obj["eventBannerUpdateTime"] = unpackex("i", data)
+		obj["bannerCircleSec"] = unpackex("i", data)
+		obj["bannerCircle"] = unpackex("b", data)
+		obj["disableBannerOSVersionMap"] = parse_primitive_obj(ID(8), data)
+		obj["maioAdsAndroidId"] = parseUTF(data)
+		obj["maioAdsIOSId"] = parseUTF(data)
+		obj["maioAdsZoneAndroidId"] = parseUTF(data)
+		obj["maioAdsZoneIOSId"] = parseUTF(data)
+		obj["videoTraceErrorSec"] = unpackex("i", data)
+		obj["tapjoyAdsAndroidId"] = parse_obj(data)
+		obj["tapjoyAdsIOSId"] = parse_obj(data)
+		obj["vangleAdsAndroidId"] = parseUTF(data)
+		obj["vangleAdsIOSId"] = parseUTF(data)
+		obj["vangleAdsAndroidPlacementIds"] = parse_obj(data)
+		obj["vangleAdsIOSPlacementIds"] = parse_obj(data)
+		obj["ironsourceAdsAndroidId"] = parseUTF(data)
+		obj["ironsourceAdsIOSId"] = parseUTF(data)
+		obj["ironSourceGlobalAdsAndroidId"] = parseUTF(data)
+		obj["ironSourceGlobalAdsIOSId"] = parseUTF(data)
+		obj["admobBannerAndroidId"] = parseUTF(data)
+		obj["admobBannerIOSId"] = parseUTF(data)
+		obj["admobVideoAndroidId"] = parseUTF(data)
+		obj["admobVideoIOSId"] = parseUTF(data)
+		obj["nendAndroidIds"] = parse_obj(data)
+		obj["nendIOSIds"] = parse_obj(data)
+		obj["chartboosVideoAndroidIds"] = parse_obj(data)
+		obj["chartboosVideoIOSIds"] = parse_obj(data)
+		obj["promotionVideoNames"] = parse_obj(data)
+		obj["promotionVideoIdAndRatio"] = parse_obj(data)
+		obj["priorityMaxVideoCount"] = unpackex("i", data)
+		obj["preLoadingVideoSecs"] = unpackex("i", data)
+		obj["videoLodingIntervalMillisec"] = unpackex("i", data)
+		obj["videoGlobalLodingIntervalMillisec"] = unpackex("i", data)
+		obj["videoInitGiveupMilliSec"] = unpackex("i", data)
+		obj["imobileInterstitialAndroidPlacement"] = parse_obj(data)
+		obj["imobileInterstitialIOSPlacement"] = parse_obj(data)
+		obj["nendInterstitialAndroid"] = parse_obj(data)
+		obj["nendInterstitialIOS"] = parse_obj(data)
+		obj["interstitiaIntervalSecs"] = unpackex("i", data)
+		obj["interstitiaIntervalGlobalSecs"] = unpackex("i", data)
+		obj["ironVideoPlacementAndroidId"] = parse_obj(data)
+		obj["ironVideoPlacementIOSId"] = parse_obj(data)
+		obj["ironOfferPlacementAndroidId"] = parse_obj(data)
+		obj["ironOfferPlacementIOSId"] = parse_obj(data)
+		obj["ironInterPlacementAndroidId"] = parse_obj(data)
+		obj["ironInterPlacementIOSId"] = parse_obj(data)
+		obj["twitter_Key"] = parseUTF(data)
+		obj["twitter_Secret"] = parseUTF(data)
+		obj["facebook_Key"] = parseUTF(data)
+		obj["useSnsTwitter"] = unpackex("b", data)
+		obj["useSnsFacebook"] = unpackex("b", data)
+		obj["tiwtterSchemeAndroidURL"] = parseUTF(data)
+		obj["tiwtterSchemeIOSURL"] = parseUTF(data)
+		obj["snsLinkBonusNum"] = unpackex("b", data)
+		obj["usefulShopShortcut"] = unpackex("b", data)
+		obj["presentDeliverPtsPercent"] = unpackex("i", data)
+		obj["snsShareBonusType"] = unpackex("i", data)
+		obj["cupGachaOpenMinPerTier"] = unpackex("i", data)
+		obj["cupGachaOpenMetalPerTier"] = unpackex("i", data)
+		obj["cupGachaShortMinByAd"] = unpackex("b", data)
+		obj["cupGachaShortNumByAd"] = unpackex("b", data)
+		obj["cupGachaMailKeepDay"] = unpackex("h", data)
+		obj["useHomeDecoEachType"] = unpackex("b", data)
+		obj["cookingShortCut"] = unpackex("b", data)
+		obj["memoryCookingRecipe"] = unpackex("b", data)
+		obj["frameIds"] = parse_obj(data)
+		obj["titleName"] = parseUTF(data)
+		obj["titleSpineName"] = parseUTF(data)
+		obj["titleGudetamaSpineName"] = parseUTF(data)
+		obj["duplicateSceneCheckClasses"] = parse_obj(data)
+		obj["titleNameCountry"] = parse_primitive_obj(ID(8), data)
+		obj["titleSpineNameCountry"] = parse_primitive_obj(ID(8), data)
+		obj["titleGudetamaSpineNameCountry"] = parse_primitive_obj(ID(8), data)
+		return ("RuleDef", obj)
 
 	elif obj_id == ID.ScreeningDef:
 		obj = {}
-		obj["flags"], data = parse_obj(data)
-		return ("ScreeningDef", obj), data
+		obj["flags"] = parse_obj(data)
+		return ("ScreeningDef", obj)
 
 	elif obj_id == ID.ScreeningGachaItemParam:
 		obj = {}
-		obj["item"], data = parse_obj(data)
-		obj["newFlag"], data = unpackex("b", data)
-		obj["pickupFlag"], data = unpackex("b", data)
-		obj["rate"], data = unpackex("i", data)
-		return ("ScreeningGachaItemParam", obj), data
+		obj["item"] = parse_obj(data)
+		obj["newFlag"] = unpackex("b", data)
+		obj["pickupFlag"] = unpackex("b", data)
+		obj["rate"] = unpackex("i", data)
+		return ("ScreeningGachaItemParam", obj)
 
 	elif obj_id == ID.SequenceTable:
 		obj = {}
-		obj["offset"], data = unpackex("f", data)
-		obj["rate"], data = unpackex("f", data)
-		obj["indexOffset"], data = unpackex("i", data)
-		obj["values"], data = parse_obj(data)
-		return ("SequenceTable", obj), data
+		obj["offset"] = unpackex("f", data)
+		obj["rate"] = unpackex("f", data)
+		obj["indexOffset"] = unpackex("i", data)
+		obj["values"] = parse_obj(data)
+		return ("SequenceTable", obj)
 
 	elif obj_id == ID.SetItemAlternativeParam:
 		obj = {}
-		obj["rsrc"], data = unpackex("i", data)
-		obj["items"], data = parse_obj(data)
-		return ("SetItemAlternativeParam", obj), data
+		obj["rsrc"] = unpackex("i", data)
+		obj["items"] = parse_obj(data)
+		return ("SetItemAlternativeParam", obj)
 
 	elif obj_id == ID.SetItemBuyData:
 		obj = {}
-		obj["count"], data = unpackex("h", data)
-		return ("SetItemBuyData", obj), data
+		obj["count"] = unpackex("h", data)
+		return ("SetItemBuyData", obj)
 
 	elif obj_id == ID.SetItemDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["viewType"], data = unpackex("b", data)
-		obj["items"], data = parse_obj(data)
-		obj["startTimeSec"], data = unpackex("i", data)
-		obj["endTimeSec"], data = unpackex("i", data)
-		obj["chargeItem"], data = parse_obj(data)
-		obj["buyableCount"], data = unpackex("h", data)
-		obj["rsrc"], data = unpackex("i", data)
-		obj["alternativeParam"], data = parse_obj(data)
-		return ("SetItemDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["viewType"] = unpackex("b", data)
+		obj["items"] = parse_obj(data)
+		obj["startTimeSec"] = unpackex("i", data)
+		obj["endTimeSec"] = unpackex("i", data)
+		obj["chargeItem"] = parse_obj(data)
+		obj["buyableCount"] = unpackex("h", data)
+		obj["rsrc"] = unpackex("i", data)
+		obj["alternativeParam"] = parse_obj(data)
+		return ("SetItemDef", obj)
 
 	elif obj_id == ID.ShareBonusDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["item"], data = parse_obj(data)
-		obj["message"], data = parseUTF(data)
-		obj["alternativeMessage"], data = parseUTF(data)
-		return ("ShareBonusDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["item"] = parse_obj(data)
+		obj["message"] = parseUTF(data)
+		obj["alternativeMessage"] = parseUTF(data)
+		return ("ShareBonusDef", obj)
 
 	elif obj_id == ID.StampData:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["num"], data = unpackex("i", data)
-		obj["available"], data = unpackex("b", data)
-		return ("StampData", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["num"] = unpackex("i", data)
+		obj["available"] = unpackex("b", data)
+		return ("StampData", obj)
 
 	elif obj_id == ID.StampDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["rsrc"], data = unpackex("i", data)
-		obj["privately"], data = unpackex("b", data)
-		obj["name"], data = parseUTF(data)
-		obj["desc"], data = parseUTF(data)
-		obj["conditionDesc"], data = parseUTF(data)
-		obj["price"], data = parse_obj(data)
-		obj["isNew"], data = unpackex("b", data)
-		obj["rare"], data = unpackex("i", data)
-		obj["isSpine"], data = unpackex("b", data)
-		obj["homeStampSettingId"], data = unpackex("i", data)
-		return ("StampDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["rsrc"] = unpackex("i", data)
+		obj["privately"] = unpackex("b", data)
+		obj["name"] = parseUTF(data)
+		obj["desc"] = parseUTF(data)
+		obj["conditionDesc"] = parseUTF(data)
+		obj["price"] = parse_obj(data)
+		obj["isNew"] = unpackex("b", data)
+		obj["rare"] = unpackex("i", data)
+		obj["isSpine"] = unpackex("b", data)
+		obj["homeStampSettingId"] = unpackex("i", data)
+		return ("StampDef", obj)
 
 	elif obj_id == ID.StampInfo:
 		obj = {}
-		obj["updateStamps"], data = parse_obj(data)
-		obj["removeStampIds"], data = parse_obj(data)
-		return ("StampInfo", obj), data
+		obj["updateStamps"] = parse_obj(data)
+		obj["removeStampIds"] = parse_obj(data)
+		return ("StampInfo", obj)
 
 	elif obj_id == ID.SubHomeStampSettingDef:
 		obj = {}
-		obj["animationName"], data = parseUTF(data)
-		obj["loop"], data = unpackex("b", data)
-		obj["music"], data = parseUTF(data)
-		obj["sound"], data = parseUTF(data)
-		obj["voiceId"], data = unpackex("i", data)
-		return ("SubHomeStampSettingDef", obj), data
+		obj["animationName"] = parseUTF(data)
+		obj["loop"] = unpackex("b", data)
+		obj["music"] = parseUTF(data)
+		obj["sound"] = parseUTF(data)
+		obj["voiceId"] = unpackex("i", data)
+		return ("SubHomeStampSettingDef", obj)
 
 	elif obj_id == ID.SystemMailData:
 		obj = {}
-		obj["type"], data = unpackex("b", data)
-		obj["kind"], data = unpackex("b", data)
-		obj["senderEncodedUid"], data = unpackex("i", data)
-		obj["item"], data = parse_obj(data)
-		obj["title"], data = parseUTF(data)
-		obj["url"], data = parseUTF(data)
-		obj["urlAndroid"], data = parseUTF(data)
-		obj["alreadyRead"], data = unpackex("b", data)
-		obj["noticeIconId"], data = unpackex("i", data)
-		obj["deleteSec"], data = unpackex("i", data)
-		obj["manualDeletion"], data = unpackex("b", data)
-		obj["uniqueKey"], data = unpackex("i", data)
-		obj["message"], data = parseUTF(data)
-		obj["receivedSecs"], data = unpackex("i", data)
-		return ("SystemMailData", obj), data
+		obj["type"] = unpackex("b", data)
+		obj["kind"] = unpackex("b", data)
+		obj["senderEncodedUid"] = unpackex("i", data)
+		obj["item"] = parse_obj(data)
+		obj["title"] = parseUTF(data)
+		obj["url"] = parseUTF(data)
+		obj["urlAndroid"] = parseUTF(data)
+		obj["alreadyRead"] = unpackex("b", data)
+		obj["noticeIconId"] = unpackex("i", data)
+		obj["deleteSec"] = unpackex("i", data)
+		obj["manualDeletion"] = unpackex("b", data)
+		obj["uniqueKey"] = unpackex("i", data)
+		obj["message"] = parseUTF(data)
+		obj["receivedSecs"] = unpackex("i", data)
+		return ("SystemMailData", obj)
 
 	elif obj_id == ID.TouchDef:
 		obj = {}
-		obj["voiceEvents"], data = parse_obj(data)
-		obj["itemEvents"], data = parse_obj(data)
-		obj["randomVoiceIds"], data = parse_obj(data)
-		return ("TouchDef", obj), data
+		obj["voiceEvents"] = parse_obj(data)
+		obj["itemEvents"] = parse_obj(data)
+		obj["randomVoiceIds"] = parse_obj(data)
+		return ("TouchDef", obj)
 
 	elif obj_id == ID.TouchEventDef:
 		obj = {}
-		obj["voice"], data = unpackex("i", data)
-		return ("TouchEventDef", obj), data
+		obj["voice"] = unpackex("i", data)
+		return ("TouchEventDef", obj)
 
 	elif obj_id == ID.TouchEventParam:
 		obj = {}
-		obj["touchNum"], data = unpackex("i", data)
-		obj["event"], data = unpackex("i", data)
-		obj["voice"], data = unpackex("i", data)
-		obj["paramByte"], data = unpackex("b", data)
-		return ("TouchEventParam", obj), data
+		obj["touchNum"] = unpackex("i", data)
+		obj["event"] = unpackex("i", data)
+		obj["voice"] = unpackex("i", data)
+		obj["paramByte"] = unpackex("b", data)
+		return ("TouchEventParam", obj)
 
 	elif obj_id == ID.TouchInfo:
 		obj = {}
-		obj["params"], data = parse_obj(data)
-		obj["bonusRange"], data = parse_obj(data)
-		return ("TouchInfo", obj), data
+		obj["params"] = parse_obj(data)
+		obj["bonusRange"] = parse_obj(data)
+		return ("TouchInfo", obj)
 
 	elif obj_id == ID.UsefulData:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["num"], data = unpackex("i", data)
-		obj["available"], data = unpackex("b", data)
-		obj["nextAvailablePurchaseSec"], data = unpackex("i", data)
-		return ("UsefulData", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["num"] = unpackex("i", data)
+		obj["available"] = unpackex("b", data)
+		obj["nextAvailablePurchaseSec"] = unpackex("i", data)
+		return ("UsefulData", obj)
 
 	elif obj_id == ID.UsefulDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["rsrc"], data = unpackex("i", data)
-		obj["privately"], data = unpackex("b", data)
-		obj["name"], data = parseUTF(data)
-		obj["desc"], data = parseUTF(data)
-		obj["usable"], data = unpackex("i", data)
-		obj["event"], data = unpackex("b", data)
-		obj["abilities"], data = parse_obj(data)
-		obj["assistAbilities"], data = parse_obj(data)
-		obj["friendlyValue"], data = unpackex("i", data)
-		obj["conditionDesc"], data = parseUTF(data)
-		obj["sortIndex"], data = unpackex("i", data)
-		obj["price"], data = parse_obj(data)
-		obj["isNew"], data = unpackex("b", data)
-		obj["eventId"], data = unpackex("i", data)
-		obj["kitchenwareTypes"], data = parse_obj(data)
-		obj["possessionLimit"], data = unpackex("i", data)
-		obj["purchaseResetHourOffset"], data = unpackex("b", data)
-		return ("UsefulDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["rsrc"] = unpackex("i", data)
+		obj["privately"] = unpackex("b", data)
+		obj["name"] = parseUTF(data)
+		obj["desc"] = parseUTF(data)
+		obj["usable"] = unpackex("i", data)
+		obj["event"] = unpackex("b", data)
+		obj["abilities"] = parse_obj(data)
+		obj["assistAbilities"] = parse_obj(data)
+		obj["friendlyValue"] = unpackex("i", data)
+		obj["conditionDesc"] = parseUTF(data)
+		obj["sortIndex"] = unpackex("i", data)
+		obj["price"] = parse_obj(data)
+		obj["isNew"] = unpackex("b", data)
+		obj["eventId"] = unpackex("i", data)
+		obj["kitchenwareTypes"] = parse_obj(data)
+		obj["possessionLimit"] = unpackex("i", data)
+		obj["purchaseResetHourOffset"] = unpackex("b", data)
+		return ("UsefulDef", obj)
 
 	elif obj_id == ID.UsefulInfo:
 		obj = {}
-		obj["updateUsefuls"], data = parse_obj(data)
-		obj["removeUsefulIds"], data = parse_obj(data)
-		return ("UsefulInfo", obj), data
+		obj["updateUsefuls"] = parse_obj(data)
+		obj["removeUsefulIds"] = parse_obj(data)
+		return ("UsefulInfo", obj)
 
 	elif obj_id == ID.UserAbilityData:
 		obj = {}
-		obj["ability"], data = parse_obj(data)
-		obj["restTimeSecs"], data = unpackex("i", data)
-		return ("UserAbilityData", obj), data
+		obj["ability"] = parse_obj(data)
+		obj["restTimeSecs"] = unpackex("i", data)
+		return ("UserAbilityData", obj)
 
 	elif obj_id == ID.UserAssistData:
 		obj = {}
-		obj["num"], data = unpackex("i", data)
-		return ("UserAssistData", obj), data
+		obj["num"] = unpackex("i", data)
+		return ("UserAssistData", obj)
 
 	elif obj_id == ID.UserData:
 		obj = {}
-		obj["uid"], data = unpackex("i", data)
-		obj["encodedUid"], data = unpackex("i", data)
-		obj["playerName"], data = parseUTF(data)
-		obj["gender"], data = unpackex("i", data)
-		obj["doneFirstLogin"], data = unpackex("b", data)
-		obj["pushFlags"], data = unpackex("i", data)
-		obj["nextDailyPresentTime"], data = unpackex("d", data)
-		obj["timeZoneOffset"], data = unpackex("i", data)
-		obj["noticeFlagData"], data = parse_obj(data)
-		obj["locale"], data = parseUTF(data)
-		obj["rank"], data = unpackex("i", data)
-		obj["chargeMetal"], data = unpackex("i", data)
-		obj["freeMetal"], data = unpackex("i", data)
-		obj["subMetal"], data = unpackex("i", data)
-		obj["chargeMoney"], data = unpackex("i", data)
-		obj["freeMoney"], data = unpackex("i", data)
-		obj["avatar"], data = unpackex("i", data)
-		obj["avatarMap"], data = parse_primitive_obj(ID(7), data)
-		obj["area"], data = unpackex("i", data)
-		obj["comment"], data = unpackex("h", data)
-		obj["placedGudetamaId"], data = unpackex("i", data)
-		obj["kitchenwareMap"], data = parse_primitive_obj(ID(7), data)
-		obj["recipeNoteMap"], data = parse_primitive_obj(ID(7), data)
-		obj["gudetamaMap"], data = parse_primitive_obj(ID(7), data)
-		obj["gachaMap"], data = parse_primitive_obj(ID(7), data)
-		obj["friendPresentMoneyParamMap"], data = parse_primitive_obj(ID(7), data)
-		obj["stampMap"], data = parse_primitive_obj(ID(7), data)
-		obj["usefulMap"], data = parse_primitive_obj(ID(7), data)
-		obj["utensilMap"], data = parse_primitive_obj(ID(7), data)
-		obj["decorationMap"], data = parse_primitive_obj(ID(7), data)
-		obj["decorationId"], data = unpackex("i", data)
-		obj["wantedGudetamas"], data = parse_obj(data)
-		obj["maxDelusion"], data = unpackex("i", data)
-		obj["delusionStartTimeSecs"], data = unpackex("i", data)
-		obj["touchInfo"], data = parse_obj(data)
-		obj["dropItemEvent"], data = parse_obj(data)
-		obj["heavenEvent"], data = parse_obj(data)
-		obj["userAbilities"], data = parse_obj(data)
-		obj["features"], data = parse_obj(data)
-		obj["numAcquiredVideoAdReward"], data = unpackex("i", data)
-		obj["videoAdRewardUpdateTimeSecs"], data = unpackex("i", data)
-		obj["linkageMap"], data = parse_primitive_obj(ID(7), data)
-		obj["numPurchaseMap"], data = parse_primitive_obj(ID(7), data)
-		obj["numFriendsExtension"], data = unpackex("i", data)
-		obj["snsInterlockType"], data = unpackex("b", data)
-		obj["snsTwitterUid"], data = parseUTF(data)
-		obj["snsFacebookUid"], data = parseUTF(data)
-		obj["purchasePresentMap"], data = parse_primitive_obj(ID(7), data)
-		obj["placeGudetamaExpansionCount"], data = unpackex("h", data)
-		obj["placeStampExpansionCount"], data = unpackex("h", data)
-		obj["commentList"], data = parse_primitive_obj(ID(9), data)
-		obj["finishMonthlyPremiumBonusTimeSec"], data = unpackex("i", data)
-		obj["noticeMonthlyPremiumBonusTimeSec"], data = unpackex("i", data)
-		obj["sendTouchCount"], data = unpackex("i", data)
-		obj["numAcquiredIdentifiedPresentMap"], data = parse_primitive_obj(ID(7), data)
-		obj["setItemBuyMap"], data = parse_primitive_obj(ID(7), data)
-		obj["numFriendPresentForGPWhileEventMap"], data = parse_primitive_obj(ID(7), data)
-		obj["cupGachaData"], data = parse_obj(data)
-		obj["cupGachaConditionClearIds"], data = parse_primitive_obj(ID(9), data)
-		obj["homeDecoDataMap"], data = parse_primitive_obj(ID(7), data)
-		obj["placeHomeStampExpansionCount"], data = unpackex("h", data)
-		return ("UserData", obj), data
+		obj["uid"] = unpackex("i", data)
+		obj["encodedUid"] = unpackex("i", data)
+		obj["playerName"] = parseUTF(data)
+		obj["gender"] = unpackex("i", data)
+		obj["doneFirstLogin"] = unpackex("b", data)
+		obj["pushFlags"] = unpackex("i", data)
+		obj["nextDailyPresentTime"] = unpackex("d", data)
+		obj["timeZoneOffset"] = unpackex("i", data)
+		obj["noticeFlagData"] = parse_obj(data)
+		obj["locale"] = parseUTF(data)
+		obj["rank"] = unpackex("i", data)
+		obj["chargeMetal"] = unpackex("i", data)
+		obj["freeMetal"] = unpackex("i", data)
+		obj["subMetal"] = unpackex("i", data)
+		obj["chargeMoney"] = unpackex("i", data)
+		obj["freeMoney"] = unpackex("i", data)
+		obj["avatar"] = unpackex("i", data)
+		obj["avatarMap"] = parse_primitive_obj(ID(7), data)
+		obj["area"] = unpackex("i", data)
+		obj["comment"] = unpackex("h", data)
+		obj["placedGudetamaId"] = unpackex("i", data)
+		obj["kitchenwareMap"] = parse_primitive_obj(ID(7), data)
+		obj["recipeNoteMap"] = parse_primitive_obj(ID(7), data)
+		obj["gudetamaMap"] = parse_primitive_obj(ID(7), data)
+		obj["gachaMap"] = parse_primitive_obj(ID(7), data)
+		obj["friendPresentMoneyParamMap"] = parse_primitive_obj(ID(7), data)
+		obj["stampMap"] = parse_primitive_obj(ID(7), data)
+		obj["usefulMap"] = parse_primitive_obj(ID(7), data)
+		obj["utensilMap"] = parse_primitive_obj(ID(7), data)
+		obj["decorationMap"] = parse_primitive_obj(ID(7), data)
+		obj["decorationId"] = unpackex("i", data)
+		obj["wantedGudetamas"] = parse_obj(data)
+		obj["maxDelusion"] = unpackex("i", data)
+		obj["delusionStartTimeSecs"] = unpackex("i", data)
+		obj["touchInfo"] = parse_obj(data)
+		obj["dropItemEvent"] = parse_obj(data)
+		obj["heavenEvent"] = parse_obj(data)
+		obj["userAbilities"] = parse_obj(data)
+		obj["features"] = parse_obj(data)
+		obj["numAcquiredVideoAdReward"] = unpackex("i", data)
+		obj["videoAdRewardUpdateTimeSecs"] = unpackex("i", data)
+		obj["linkageMap"] = parse_primitive_obj(ID(7), data)
+		obj["numPurchaseMap"] = parse_primitive_obj(ID(7), data)
+		obj["numFriendsExtension"] = unpackex("i", data)
+		obj["snsInterlockType"] = unpackex("b", data)
+		obj["snsTwitterUid"] = parseUTF(data)
+		obj["snsFacebookUid"] = parseUTF(data)
+		obj["purchasePresentMap"] = parse_primitive_obj(ID(7), data)
+		obj["placeGudetamaExpansionCount"] = unpackex("h", data)
+		obj["placeStampExpansionCount"] = unpackex("h", data)
+		obj["commentList"] = parse_primitive_obj(ID(9), data)
+		obj["finishMonthlyPremiumBonusTimeSec"] = unpackex("i", data)
+		obj["noticeMonthlyPremiumBonusTimeSec"] = unpackex("i", data)
+		obj["sendTouchCount"] = unpackex("i", data)
+		obj["numAcquiredIdentifiedPresentMap"] = parse_primitive_obj(ID(7), data)
+		obj["setItemBuyMap"] = parse_primitive_obj(ID(7), data)
+		obj["numFriendPresentForGPWhileEventMap"] = parse_primitive_obj(ID(7), data)
+		obj["cupGachaData"] = parse_obj(data)
+		obj["cupGachaConditionClearIds"] = parse_primitive_obj(ID(9), data)
+		obj["homeDecoDataMap"] = parse_primitive_obj(ID(7), data)
+		obj["placeHomeStampExpansionCount"] = unpackex("h", data)
+		return ("UserData", obj)
 
 	elif obj_id == ID.UserGachaData:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["playCount"], data = unpackex("i", data)
-		obj["prices"], data = parse_obj(data)
-		obj["onceMorePlayCount"], data = unpackex("b", data)
-		obj["freePlayCount"], data = unpackex("b", data)
-		return ("UserGachaData", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["playCount"] = unpackex("i", data)
+		obj["prices"] = parse_obj(data)
+		obj["onceMorePlayCount"] = unpackex("b", data)
+		obj["freePlayCount"] = unpackex("b", data)
+		return ("UserGachaData", obj)
 
 	elif obj_id == ID.UserGachaPriceData:
 		obj = {}
-		obj["dailyPlayCount"], data = unpackex("i", data)
-		return ("UserGachaPriceData", obj), data
+		obj["dailyPlayCount"] = unpackex("i", data)
+		return ("UserGachaPriceData", obj)
 
 	elif obj_id == ID.UserPresentMoneyData:
 		obj = {}
-		obj["pid"], data = unpackex("d", data)
-		obj["encodedUid"], data = unpackex("i", data)
-		obj["playerName"], data = parseUTF(data)
-		obj["playerRank"], data = unpackex("i", data)
-		obj["money"], data = unpackex("i", data)
-		obj["presentTimeSecs"], data = unpackex("i", data)
-		obj["avatar"], data = unpackex("i", data)
-		obj["snsProfileImage"], data = parse_obj(data)
-		obj["snsType"], data = unpackex("b", data)
-		return ("UserPresentMoneyData", obj), data
+		obj["pid"] = unpackex("d", data)
+		obj["encodedUid"] = unpackex("i", data)
+		obj["playerName"] = parseUTF(data)
+		obj["playerRank"] = unpackex("i", data)
+		obj["money"] = unpackex("i", data)
+		obj["presentTimeSecs"] = unpackex("i", data)
+		obj["avatar"] = unpackex("i", data)
+		obj["snsProfileImage"] = parse_obj(data)
+		obj["snsType"] = unpackex("b", data)
+		return ("UserPresentMoneyData", obj)
 
 	elif obj_id == ID.UserProfileData:
 		obj = {}
-		obj["encodedUid"], data = unpackex("i", data)
-		obj["playerName"], data = parseUTF(data)
-		obj["playerRank"], data = unpackex("i", data)
-		obj["avatar"], data = unpackex("i", data)
-		obj["gender"], data = unpackex("i", data)
-		obj["area"], data = unpackex("i", data)
-		obj["comment"], data = unpackex("i", data)
-		obj["followState"], data = unpackex("b", data)
-		obj["followRequestSecs"], data = unpackex("i", data)
-		obj["snsProfileImage"], data = parse_obj(data)
-		obj["lastActiveSec"], data = unpackex("i", data)
-		obj["snsId"], data = parseUTF(data)
-		obj["snsType"], data = unpackex("b", data)
-		return ("UserProfileData", obj), data
+		obj["encodedUid"] = unpackex("i", data)
+		obj["playerName"] = parseUTF(data)
+		obj["playerRank"] = unpackex("i", data)
+		obj["avatar"] = unpackex("i", data)
+		obj["gender"] = unpackex("i", data)
+		obj["area"] = unpackex("i", data)
+		obj["comment"] = unpackex("i", data)
+		obj["followState"] = unpackex("b", data)
+		obj["followRequestSecs"] = unpackex("i", data)
+		obj["snsProfileImage"] = parse_obj(data)
+		obj["lastActiveSec"] = unpackex("i", data)
+		obj["snsId"] = parseUTF(data)
+		obj["snsType"] = unpackex("b", data)
+		return ("UserProfileData", obj)
 
 	elif obj_id == ID.UserRankingData:
 		obj = {}
-		obj["rankingPoint"], data = unpackex("i", data)
-		return ("UserRankingData", obj), data
+		obj["rankingPoint"] = unpackex("i", data)
+		return ("UserRankingData", obj)
 
 	elif obj_id == ID.UserRoomInfo:
 		obj = {}
-		obj["placedGudetamaId"], data = unpackex("i", data)
-		obj["questionId"], data = unpackex("i", data)
-		obj["kitchenwareMap"], data = parse_primitive_obj(ID(7), data)
-		obj["friendlyData"], data = parse_obj(data)
-		obj["lastFriendlyLevel"], data = unpackex("i", data)
-		obj["friendPresentMoneyParam"], data = parse_obj(data)
-		obj["assistData"], data = parse_obj(data)
-		obj["decorationId"], data = unpackex("i", data)
-		obj["homeDecoDataList"], data = parse_primitive_obj(ID(9), data)
-		return ("UserRoomInfo", obj), data
+		obj["placedGudetamaId"] = unpackex("i", data)
+		obj["questionId"] = unpackex("i", data)
+		obj["kitchenwareMap"] = parse_primitive_obj(ID(7), data)
+		obj["friendlyData"] = parse_obj(data)
+		obj["lastFriendlyLevel"] = unpackex("i", data)
+		obj["friendPresentMoneyParam"] = parse_obj(data)
+		obj["assistData"] = parse_obj(data)
+		obj["decorationId"] = unpackex("i", data)
+		obj["homeDecoDataList"] = parse_primitive_obj(ID(9), data)
+		return ("UserRoomInfo", obj)
 
 	elif obj_id == ID.UserWantedData:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["updateTime"], data = unpackex("i", data)
-		return ("UserWantedData", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["updateTime"] = unpackex("i", data)
+		return ("UserWantedData", obj)
 
 	elif obj_id == ID.UtensilData:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["acquired"], data = unpackex("b", data)
-		obj["available"], data = unpackex("b", data)
-		return ("UtensilData", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["acquired"] = unpackex("b", data)
+		obj["available"] = unpackex("b", data)
+		return ("UtensilData", obj)
 
 	elif obj_id == ID.UtensilDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["rsrc"], data = unpackex("i", data)
-		obj["name"], data = parseUTF(data)
-		obj["desc"], data = parseUTF(data)
-		obj["conditionDesc"], data = parseUTF(data)
-		obj["price"], data = parse_obj(data)
-		obj["isNew"], data = unpackex("b", data)
-		return ("UtensilDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["rsrc"] = unpackex("i", data)
+		obj["name"] = parseUTF(data)
+		obj["desc"] = parseUTF(data)
+		obj["conditionDesc"] = parseUTF(data)
+		obj["price"] = parse_obj(data)
+		obj["isNew"] = unpackex("b", data)
+		return ("UtensilDef", obj)
 
 	elif obj_id == ID.UtensilInfo:
 		obj = {}
-		obj["updateUtensils"], data = parse_obj(data)
-		obj["removeUtensilIds"], data = parse_obj(data)
-		return ("UtensilInfo", obj), data
+		obj["updateUtensils"] = parse_obj(data)
+		obj["removeUtensilIds"] = parse_obj(data)
+		return ("UtensilInfo", obj)
 
 	elif obj_id == ID.VideoAdRewardDef:
 		obj = {}
-		obj["items"], data = parse_obj(data)
-		return ("VideoAdRewardDef", obj), data
+		obj["items"] = parse_obj(data)
+		return ("VideoAdRewardDef", obj)
 
 	elif obj_id == ID.VoiceDef:
 		obj = {}
-		obj["id"], data = unpackex("i", data)
-		obj["rsrc"], data = unpackex("i", data)
-		obj["gudetamaId"], data = unpackex("i", data)
-		obj["type"], data = unpackex("b", data)
-		obj["number"], data = unpackex("i", data)
-		obj["name"], data = parseUTF(data)
-		obj["position"], data = unpackex("i", data)
-		obj["offset"], data = parse_obj(data)
-		obj["params"], data = parse_obj(data)
-		return ("VoiceDef", obj), data
+		obj["id"] = unpackex("i", data)
+		obj["rsrc"] = unpackex("i", data)
+		obj["gudetamaId"] = unpackex("i", data)
+		obj["type"] = unpackex("b", data)
+		obj["number"] = unpackex("i", data)
+		obj["name"] = parseUTF(data)
+		obj["position"] = unpackex("i", data)
+		obj["offset"] = parse_obj(data)
+		obj["params"] = parse_obj(data)
+		return ("VoiceDef", obj)
 
 	elif obj_id == ID.VoiceParam:
 		obj = {}
-		obj["resources"], data = parse_obj(data)
-		obj["names"], data = parse_obj(data)
-		obj["delays"], data = parse_obj(data)
-		obj["positions"], data = parse_obj(data)
-		obj["offsets"], data = parse_obj(data)
-		return ("VoiceParam", obj), data
+		obj["resources"] = parse_obj(data)
+		obj["names"] = parse_obj(data)
+		obj["delays"] = parse_obj(data)
+		obj["positions"] = parse_obj(data)
+		obj["offsets"] = parse_obj(data)
+		return ("VoiceParam", obj)
 
 	elif obj_id == ID.AbilityParam:
 		obj = {}
-		obj["type"], data = unpackex("i", data)
-		obj["values"], data = parse_obj(data)
-		obj["secs"], data = unpackex("i", data)
-		return ("AbilityParam", obj), data
+		obj["type"] = unpackex("i", data)
+		obj["values"] = parse_obj(data)
+		obj["secs"] = unpackex("i", data)
+		return ("AbilityParam", obj)
 
 	elif obj_id == ID.UserProfileData:
 		obj = {}
-		obj["encodedUid"], data = unpackex("i", data)
-		obj["playerName"], data = parseUTF(data)
-		obj["playerRank"], data = unpackex("i", data)
-		obj["avatar"], data = unpackex("i", data)
-		obj["gender"], data = unpackex("i", data)
-		obj["area"], data = unpackex("i", data)
-		obj["comment"], data = unpackex("i", data)
-		obj["followState"], data = unpackex("b", data)
-		obj["followRequestSecs"], data = unpackex("i", data)
-		obj["snsProfileImage"], data = parse_obj(data)
-		obj["lastActiveSec"], data = unpackex("i", data)
-		obj["snsId"], data = parseUTF(data)
-		obj["snsType"], data = unpackex("b", data)
-		return ("UserProfileData", obj), data
+		obj["encodedUid"] = unpackex("i", data)
+		obj["playerName"] = parseUTF(data)
+		obj["playerRank"] = unpackex("i", data)
+		obj["avatar"] = unpackex("i", data)
+		obj["gender"] = unpackex("i", data)
+		obj["area"] = unpackex("i", data)
+		obj["comment"] = unpackex("i", data)
+		obj["followState"] = unpackex("b", data)
+		obj["followRequestSecs"] = unpackex("i", data)
+		obj["snsProfileImage"] = parse_obj(data)
+		obj["lastActiveSec"] = unpackex("i", data)
+		obj["snsId"] = parseUTF(data)
+		obj["snsType"] = unpackex("b", data)
+		return ("UserProfileData", obj)
