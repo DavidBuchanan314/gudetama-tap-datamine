@@ -24,4 +24,4 @@ def setting_to_json(inpath, outpath):
 
 
 if __name__ == "__main__":
-	setting_to_json(sys.argv[1], sys.argv[1]+".json")
+	setting_to_json(sys.argv[1], sys.argv[2])

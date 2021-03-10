@@ -83,7 +83,7 @@ def parse_primitive_obj(obj_id, data):
 	else:
 		exit("bad id")
 
-def parse_obj(data):
+def parse_obj(data, compact=True):
 	# TODO: if data is bytes, convert to BytesIO
 	obj_id_int = unpackex("H", data)
 	obj_id = ID(obj_id_int)
@@ -92,4 +92,5 @@ def parse_obj(data):
 		return parse_primitive_obj(obj_id, data)
 	else:
 		# we have to pass in the other parsers here, to avoid circular imports
-		return parse_compound_obj(obj_id, data, parse_obj, parse_primitive_obj)
+		obj = parse_compound_obj(obj_id, data, parse_obj, parse_primitive_obj)
+		return obj[1] if compact else obj
