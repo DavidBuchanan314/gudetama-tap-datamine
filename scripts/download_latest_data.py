@@ -37,11 +37,12 @@ for locale in LOCALES:
 	destpath = os.path.join(datdir, filename)
 	jsonpath = os.path.join(jsondir, filename + ".json")
 	
+	print("Getting", url)
+	
 	if os.path.isfile(destpath):
 		print(destpath, "already exists, skipping.")
 		continue
 	
-	print("Getting", url)
 	r = s.get(url)
 	assert(r.ok)
 	
