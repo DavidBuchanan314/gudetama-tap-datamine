@@ -132,3 +132,6 @@ dmypy.json
 decompiled/
 datfiles/
 jsonfiles/
+
+assets/
+assets_merged/
